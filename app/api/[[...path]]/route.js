@@ -45,7 +45,7 @@ async function sendEmail(to, subject, html) {
   }
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Khyontek AI <onboarding@resend.dev>',
+      from: 'Khyontek AI <contact@khyontekai.com>',
       to: Array.isArray(to) ? to : [to],
       subject,
       html,
