@@ -21,7 +21,6 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-2xl">
             <div className="relative pl-6 md:pl-8">
-              <div className="absolute top-0 left-0 w-8 h-8 md:w-12 md:h-12 border-t-[3px] border-l-[3px] border-amber-gold" />
               <p className="text-amber-gold text-sm font-semibold tracking-widest uppercase mb-4">Research & Development</p>
               <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
                 The Shape of<br />Intelligence
@@ -43,7 +42,6 @@ export default function HomePage() {
                   Join Our Programme
                 </Link>
               </div>
-              <div className="absolute bottom-0 right-0 w-8 h-8 md:w-12 md:h-12 border-b-[3px] border-r-[3px] border-amber-gold translate-x-4 translate-y-4" />
             </div>
           </div>
         </div>
@@ -111,7 +109,7 @@ export default function HomePage() {
                 desc: 'AI development that is DPDPA-compliant, ABDM-compatible, and ethically accountable to the communities it serves.',
               },
             ].map((card, i) => (
-              <div key={i} className="corner-brackets p-8 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div key={i} className="p-8 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-bold text-dark-navy mb-3">{card.title}</h3>
                 <p className="text-dark-grey text-sm leading-relaxed">{card.desc}</p>
               </div>
@@ -194,7 +192,7 @@ export default function HomePage() {
                 desc: 'Building and adapting foundation models for underserved Indian languages, including languages of Northeast India with limited digital resources.',
               },
             ].map((area, i) => (
-              <div key={i} className="corner-brackets p-6 bg-white border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+              <div key={i} className="p-6 bg-white border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 rounded-lg bg-pale-blue flex items-center justify-center mb-4">
                   <area.icon className="w-6 h-6 text-royal-blue" />
                 </div>
