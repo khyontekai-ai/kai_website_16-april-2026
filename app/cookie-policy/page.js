@@ -46,7 +46,7 @@ export default function CookiePolicyPage() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-dark-navy mb-3">5. Contact</h2>
           <p className="text-dark-grey leading-relaxed">
-            For any questions about our use of cookies, contact us at <a href="mailto:info@khyontek.ai" className="text-royal-blue hover:underline">info@khyontek.ai</a>.
+            For any questions about our use of cookies, contact us at <a href="mailto:contact@khyontekai.com" className="text-royal-blue hover:underline">contact@khyontekai.com</a>.
           </p>
         </section>
 

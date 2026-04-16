@@ -50,14 +50,14 @@ export default function PrivacyPolicyPage() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-dark-navy mb-3">5. Your rights under DPDPA (India)</h2>
           <p className="text-dark-grey leading-relaxed">
-            Under India's Digital Personal Data Protection Act 2023, you have the right to access the personal data we hold about you; correct inaccurate data; request erasure of your data where it is no longer needed; and withdraw consent where processing is based on consent. To exercise any of these rights, contact us at <a href="mailto:info@khyontek.ai" className="text-royal-blue hover:underline">info@khyontek.ai</a>.
+            Under India's Digital Personal Data Protection Act 2023, you have the right to access the personal data we hold about you; correct inaccurate data; request erasure of your data where it is no longer needed; and withdraw consent where processing is based on consent. To exercise any of these rights, contact us at <a href="mailto:contact@khyontekai.com" className="text-royal-blue hover:underline">contact@khyontekai.com</a>.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-xl font-bold text-dark-navy mb-3">6. Data retention</h2>
           <p className="text-dark-grey leading-relaxed">
-            We retain programme registration data for up to 2 years after the programme end date. Contact form data is retained for up to 12 months. You may request deletion at any time by writing to <a href="mailto:info@khyontek.ai" className="text-royal-blue hover:underline">info@khyontek.ai</a>.
+            We retain programme registration data for up to 2 years after the programme end date. Contact form data is retained for up to 12 months. You may request deletion at any time by writing to <a href="mailto:contact@khyontekai.com" className="text-royal-blue hover:underline">contact@khyontekai.com</a>.
           </p>
         </section>
 
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-dark-navy mb-3">10. Contact</h2>
           <p className="text-dark-grey leading-relaxed">
-            For any privacy-related queries, write to us at <a href="mailto:info@khyontek.ai" className="text-royal-blue hover:underline">info@khyontek.ai</a> or at: Khyontek AI Pvt Ltd, Guwahati, Assam, India.
+            For any privacy-related queries, write to us at <a href="mailto:contact@khyontekai.com" className="text-royal-blue hover:underline">contact@khyontekai.com</a> or at: Khyontek AI Pvt Ltd, Guwahati, Assam, India.
           </p>
         </section>
 

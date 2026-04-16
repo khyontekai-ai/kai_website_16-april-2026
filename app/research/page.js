@@ -94,12 +94,12 @@ export default function ResearchPage() {
         </div>
       </section>
 
-      {/* Collaborations */}
+      {/* CTA */}
       <section className="bg-pale-blue py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-dark-navy mb-6">Collaborations</h2>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-dark-navy mb-4">Interested in working with us?</h2>
           <p className="text-dark-grey text-base leading-relaxed mb-8">
-            We work with academic institutions across Northeast India and engage with national bodies including BIRAC, DBT, DST, and ICMR. We are pursuing Bio-AI hub partnerships anchored in the Northeast region.
+            We welcome conversations with researchers, institutions, and organisations aligned with our mission.
           </p>
           <Link
             href="/contact"

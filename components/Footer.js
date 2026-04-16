@@ -61,9 +61,9 @@ export default function Footer() {
                 <Github size={20} />
               </a>
             </div>
-            <a href="mailto:info@khyontek.ai" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
+            <a href="mailto:contact@khyontekai.com" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
               <Mail size={16} />
-              info@khyontek.ai
+              contact@khyontekai.com
             </a>
           </div>
         </div>

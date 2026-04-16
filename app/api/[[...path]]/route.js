@@ -224,7 +224,7 @@ async function handleRoute(request, { params }) {
 
       // Send notification to Khyontek AI team
       await sendEmail(
-        'info@khyontek.ai',
+        'contact@khyontekai.com',
         `New Contact Form Submission: ${subject}`,
         `
         <div style="font-family: 'Nunito', Calibri, sans-serif; padding: 20px;">

@@ -157,7 +157,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg font-bold text-dark-navy mb-3">Research Collaboration</h3>
               <p className="text-dark-grey text-sm leading-relaxed">
-                Partnering with academic institutions, government agencies, and industry. We engage in joint research with BIRAC, DBT, DST, ICMR, and pursue Bio-AI hub partnerships anchored in Northeast India.
+                Partnering with academic institutions, government agencies, and industry to build a collaborative ecosystem that accelerates responsible AI innovation anchored in Northeast India.
               </p>
             </div>
           </div>
