@@ -138,7 +138,7 @@ async function handleRoute(request, { params }) {
               Our team will be in touch within 48 hours with detailed next steps including your cohort assignment, schedule, and preparation guidelines.
             </p>
             <p style="color: #3D3D3D; line-height: 1.6;">
-              If you have any questions in the meantime, feel free to reach out to us at <a href="mailto:programmes@khyontekai.com" style="color: #2B3EAA;">programmes@khyontekai.com</a>.
+              If you have any questions in the meantime, feel free to reach out to us at <a href="mailto:contact@khyontekai.com" style="color: #2B3EAA;">contact@khyontekai.com</a>.
             </p>
             <p style="color: #3D3D3D; line-height: 1.6;">
               We look forward to working with you.
@@ -158,7 +158,7 @@ async function handleRoute(request, { params }) {
 
       // Send internal notification email
       await sendEmail(
-        'programmes@khyontekai.com',
+        'contact@khyontekai.com',
         `New Programme Registration: ${fullName}`,
         `
         <div style="font-family: 'Nunito', Calibri, sans-serif; padding: 20px;">

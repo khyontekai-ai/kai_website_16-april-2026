@@ -43,7 +43,7 @@ export default function RefundPolicyPage() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-dark-navy mb-3">5. How to request a refund</h2>
           <p className="text-dark-grey leading-relaxed">
-            Email <a href="mailto:programmes@khyontekai.com" className="text-royal-blue hover:underline">programmes@khyontekai.com</a> with your full name, registered email address, Razorpay payment ID, and your reason for withdrawal. We will respond within 3 working days.
+            Email <a href="mailto:contact@khyontekai.com" className="text-royal-blue hover:underline">contact@khyontekai.com</a> with your full name, registered email address, Razorpay payment ID, and your reason for withdrawal. We will respond within 3 working days.
           </p>
         </section>
 
@@ -57,7 +57,7 @@ export default function RefundPolicyPage() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-dark-navy mb-3">7. Contact</h2>
           <p className="text-dark-grey leading-relaxed">
-            For any refund-related questions, contact us at <a href="mailto:programmes@khyontekai.com" className="text-royal-blue hover:underline">programmes@khyontekai.com</a>.
+            For any refund-related questions, contact us at <a href="mailto:contact@khyontekai.com" className="text-royal-blue hover:underline">contact@khyontekai.com</a>.
           </p>
         </section>
 
