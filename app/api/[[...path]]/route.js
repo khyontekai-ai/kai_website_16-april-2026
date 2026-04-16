@@ -138,7 +138,7 @@ async function handleRoute(request, { params }) {
               Our team will be in touch within 48 hours with detailed next steps including your cohort assignment, schedule, and preparation guidelines.
             </p>
             <p style="color: #3D3D3D; line-height: 1.6;">
-              If you have any questions in the meantime, feel free to reach out to us at <a href="mailto:programmes@khyontek.ai" style="color: #2B3EAA;">programmes@khyontek.ai</a>.
+              If you have any questions in the meantime, feel free to reach out to us at <a href="mailto:programmes@khyontekai.com" style="color: #2B3EAA;">programmes@khyontekai.com</a>.
             </p>
             <p style="color: #3D3D3D; line-height: 1.6;">
               We look forward to working with you.
@@ -150,7 +150,7 @@ async function handleRoute(request, { params }) {
             </p>
           </div>
           <div style="border-top: 1px solid #E5E7EB; margin-top: 24px; padding-top: 12px;">
-            <p style="color: #6B7280; font-size: 12px;">Khyontek AI Pvt Ltd | Guwahati, Assam, India | khyontek.ai</p>
+            <p style="color: #6B7280; font-size: 12px;">Khyontek AI Pvt Ltd | Guwahati, Assam, India | khyontekai.com</p>
           </div>
         </div>
         `
@@ -158,7 +158,7 @@ async function handleRoute(request, { params }) {
 
       // Send internal notification email
       await sendEmail(
-        'programmes@khyontek.ai',
+        'programmes@khyontekai.com',
         `New Programme Registration: ${fullName}`,
         `
         <div style="font-family: 'Nunito', Calibri, sans-serif; padding: 20px;">
@@ -264,7 +264,7 @@ async function handleRoute(request, { params }) {
             </p>
           </div>
           <div style="border-top: 1px solid #E5E7EB; margin-top: 24px; padding-top: 12px;">
-            <p style="color: #6B7280; font-size: 12px;">Khyontek AI Pvt Ltd | Guwahati, Assam, India | khyontek.ai</p>
+            <p style="color: #6B7280; font-size: 12px;">Khyontek AI Pvt Ltd | Guwahati, Assam, India | khyontekai.com</p>
           </div>
         </div>
         `

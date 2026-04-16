@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <div className="relative inline-flex items-center">
               <div className="absolute -top-1 -left-2 w-3 h-3 border-t-2 border-l-2 border-amber-gold" />
-              <span className="text-xl md:text-2xl font-extrabold text-royal-blue px-3 py-1">Khyontek.ai</span>
+              <span className="text-xl md:text-2xl font-extrabold text-royal-blue px-3 py-1">Khyontekai</span>
               <div className="absolute -bottom-1 -right-2 w-3 h-3 border-b-2 border-r-2 border-amber-gold" />
             </div>
           </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
         <div className="md:hidden fixed inset-0 z-50 bg-white">
           <div className="flex items-center justify-between px-4 h-16 border-b border-gray-100">
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <span className="text-xl font-extrabold text-royal-blue">Khyontek.ai</span>
+              <span className="text-xl font-extrabold text-royal-blue">Khyontekai</span>
             </Link>
             <button onClick={() => setMobileOpen(false)} className="p-2 text-dark-grey">
               <X size={24} />

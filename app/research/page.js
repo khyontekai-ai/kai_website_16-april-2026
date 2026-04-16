@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Bug, Droplets, Heart, CircleDot } from 'lucide-react'
 
 export const metadata = {
-  title: 'Research - Khyontek.ai',
+  title: 'Research - Khyontekai.com',
   description: 'Explore our research in biological intelligence, population genomics, and regulatory AI for South and Southeast Asian populations.',
 }
 

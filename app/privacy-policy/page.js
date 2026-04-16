@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowUp } from 'lucide-react'
 
 export const metadata = {
-  title: 'Privacy Policy - Khyontek.ai',
+  title: 'Privacy Policy - Khyontekai.com',
   description: 'Privacy Policy for Khyontek AI Pvt Ltd.',
 }
 
@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-dark-navy mb-3">1. Who we are</h2>
           <p className="text-dark-grey leading-relaxed">
-            Khyontek AI Pvt Ltd is an AI research company registered in India, based in Guwahati, Assam. Our website is khyontek.ai.
+            Khyontek AI Pvt Ltd is an AI research company registered in India, based in Guwahati, Assam. Our website is khyontekai.com.
           </p>
         </section>
 

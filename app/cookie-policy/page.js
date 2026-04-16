@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowUp } from 'lucide-react'
 
 export const metadata = {
-  title: 'Cookie Policy - Khyontek.ai',
+  title: 'Cookie Policy - Khyontekai.com',
   description: 'Cookie Policy for Khyontek AI website.',
 }
 

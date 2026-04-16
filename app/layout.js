@@ -17,19 +17,19 @@ const firaCode = Fira_Code({
 })
 
 export const metadata = {
-  title: 'Khyontek.ai - The Shape of Intelligence',
+  title: 'Khyontekai.com - The Shape of Intelligence',
   description: 'Khyontek AI is a Guwahati-based AI research company building population-specific biological intelligence and regulatory AI systems for South and Southeast Asia. The shape of intelligence, built in Northeast India.',
   icons: {
     icon: '/favicon.png',
   },
   openGraph: {
-    title: 'Khyontek.ai - The Shape of Intelligence',
+    title: 'Khyontekai.com - The Shape of Intelligence',
     description: 'Khyontek AI is a Guwahati-based AI research company building population-specific biological intelligence and regulatory AI systems for South and Southeast Asia.',
-    url: 'https://khyontek.ai',
-    siteName: 'Khyontek.ai',
+    url: 'https://khyontekai.com',
+    siteName: 'Khyontekai.com',
     type: 'website',
   },
-  metadataBase: new URL('https://khyontek.ai'),
+  metadataBase: new URL('https://khyontekai.com'),
 }
 
 export default function RootLayout({ children }) {
@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${nunito.variable} ${firaCode.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{__html:'window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);'}} />
-        <link rel="canonical" href="https://khyontek.ai" />
+        <link rel="canonical" href="https://khyontekai.com" />
       </head>
       <body className={`${nunito.className} antialiased`}>
         <Navbar />

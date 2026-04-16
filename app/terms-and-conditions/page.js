@@ -1,7 +1,7 @@
 import { ArrowUp } from 'lucide-react'
 
 export const metadata = {
-  title: 'Terms and Conditions - Khyontek.ai',
+  title: 'Terms and Conditions - Khyontekai.com',
   description: 'Terms and Conditions for Khyontek AI website and programmes.',
 }
 
@@ -15,7 +15,7 @@ export default function TermsPage() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-dark-navy mb-3">1. About these terms</h2>
           <p className="text-dark-grey leading-relaxed">
-            These terms govern your use of the Khyontek AI website (khyontek.ai) and your participation in any programmes offered by Khyontek AI Pvt Ltd. By using our website or registering for a programme, you agree to these terms.
+            These terms govern your use of the Khyontek AI website (khyontekai.com) and your participation in any programmes offered by Khyontek AI Pvt Ltd. By using our website or registering for a programme, you agree to these terms.
           </p>
         </section>
 
