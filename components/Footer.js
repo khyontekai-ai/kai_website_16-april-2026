@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import { Linkedin, Instagram, Github, Mail } from 'lucide-react'
 
+const HuggingFaceIcon = ({ size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-.5 4.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm5 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM8.5 9.5c.55 0 1 .45 1 1v1c0 .55-.45 1-1 1s-1-.45-1-1v-1c0-.55.45-1 1-1zm7 0c.55 0 1 .45 1 1v1c0 .55-.45 1-1 1s-1-.45-1-1v-1c0-.55.45-1 1-1zM12 14c-2.33 0-4.32 1.45-5.12 3.5h1.67c.69-1.19 1.97-2 3.45-2s2.76.81 3.45 2h1.67C16.32 15.45 14.33 14 12 14z"/>
+  </svg>
+)
+
 const quickLinks = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
@@ -59,6 +65,9 @@ export default function Footer() {
               </a>
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-gold transition-colors">
                 <Github size={20} />
+              </a>
+              <a href="https://huggingface.co/KhyontekAI" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-gold transition-colors">
+                <HuggingFaceIcon size={20} />
               </a>
             </div>
             <a href="mailto:contact@khyontekai.com" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
