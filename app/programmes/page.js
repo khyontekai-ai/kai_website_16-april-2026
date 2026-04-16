@@ -199,6 +199,10 @@ export default function ProgrammesPage() {
   return (
     <div>
       {/* Page Header */}
+      <head>
+        <title>Programmes - Khyontek.ai</title>
+        <meta name="description" content="Join the Summer Research Immersion Programme at Khyontek AI, Guwahati. 45-day hands-on research experience across four tracks in biological intelligence, ethnobotanical research, compliance, and AI foundations." />
+      </head>
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-5xl font-bold text-dark-navy mb-4">Programmes at Khyontek AI</h1>

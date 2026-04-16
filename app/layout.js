@@ -19,17 +19,36 @@ const firaCode = Fira_Code({
 export const metadata = {
   title: 'Khyontek.ai - The Shape of Intelligence',
   description: 'Khyontek AI is a Guwahati-based AI research company building population-specific biological intelligence and regulatory AI systems for South and Southeast Asia. The shape of intelligence, built in Northeast India.',
+  keywords: ['AI research', 'biological intelligence', 'population genomics', 'Northeast India', 'Guwahati', 'Khyontek AI', 'healthcare AI', 'South Asia AI'],
+  authors: [{ name: 'Khyontek AI Pvt Ltd' }],
   icons: {
     icon: '/favicon.png',
   },
   openGraph: {
     title: 'Khyontek.ai - The Shape of Intelligence',
-    description: 'Khyontek AI is a Guwahati-based AI research company building population-specific biological intelligence and regulatory AI systems for South and Southeast Asia.',
+    description: 'AI research rooted in Northeast India. Built for Asia\'s underrepresented populations.',
     url: 'https://khyontekai.com',
     siteName: 'Khyontek.ai',
     type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Khyontek.ai - The Shape of Intelligence',
+    description: 'AI research rooted in Northeast India. Built for Asia\'s underrepresented populations.',
   },
   metadataBase: new URL('https://khyontekai.com'),
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 }
 
 export default function RootLayout({ children }) {
@@ -40,6 +59,34 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://khyontekai.com" />
       </head>
       <body className={`${nunito.className} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Khyontek AI Pvt Ltd',
+              alternateName: 'Khyontek.ai',
+              url: 'https://khyontekai.com',
+              logo: 'https://khyontekai.com/logo.png',
+              description: 'AI research company building population-specific biological intelligence and regulatory AI systems for South and Southeast Asia.',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Guwahati',
+                addressRegion: 'Assam',
+                addressCountry: 'IN',
+              },
+              sameAs: [
+                'https://www.linkedin.com/company/khyontek-ai-private-limited/',
+                'https://huggingface.co/KhyontekAI',
+              ],
+              founder: [
+                { '@type': 'Person', name: 'Dr. Pritam Deka', jobTitle: 'Co-Founder and CEO' },
+                { '@type': 'Person', name: 'Nayan J Kalita', jobTitle: 'Co-Founder' },
+              ],
+            }),
+          }}
+        />
         <Navbar />
         <main className="min-h-screen">
           {children}
