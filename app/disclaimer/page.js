@@ -1,7 +1,7 @@
 import { ArrowUp } from 'lucide-react'
 
 export const metadata = {
-  title: 'Disclaimer - Khyontekai.com',
+  title: 'Disclaimer - Khyontek.ai',
   description: 'Disclaimer for Khyontek AI website.',
 }
 

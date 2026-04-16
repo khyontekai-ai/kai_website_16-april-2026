@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <div className="relative inline-flex items-center mb-3">
               <div className="absolute -top-1 -left-2 w-3 h-3 border-t-2 border-l-2 border-amber-gold" />
-              <span className="text-2xl font-extrabold text-white px-3 py-1">Khyontekai</span>
+              <span className="text-2xl font-extrabold text-white px-3 py-1">Khyontek.ai</span>
               <div className="absolute -bottom-1 -right-2 w-3 h-3 border-b-2 border-r-2 border-amber-gold" />
             </div>
             <p className="text-gray-300 text-sm mt-4">The Shape of Intelligence</p>

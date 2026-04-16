@@ -17,16 +17,16 @@ const firaCode = Fira_Code({
 })
 
 export const metadata = {
-  title: 'Khyontekai.com - The Shape of Intelligence',
+  title: 'Khyontek.ai - The Shape of Intelligence',
   description: 'Khyontek AI is a Guwahati-based AI research company building population-specific biological intelligence and regulatory AI systems for South and Southeast Asia. The shape of intelligence, built in Northeast India.',
   icons: {
     icon: '/favicon.png',
   },
   openGraph: {
-    title: 'Khyontekai.com - The Shape of Intelligence',
+    title: 'Khyontek.ai - The Shape of Intelligence',
     description: 'Khyontek AI is a Guwahati-based AI research company building population-specific biological intelligence and regulatory AI systems for South and Southeast Asia.',
     url: 'https://khyontekai.com',
-    siteName: 'Khyontekai.com',
+    siteName: 'Khyontek.ai',
     type: 'website',
   },
   metadataBase: new URL('https://khyontekai.com'),

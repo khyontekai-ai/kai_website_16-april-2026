@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Microscope, Users, ShieldCheck, MapPin, Linkedin } from 'lucide-react'
 
 export const metadata = {
-  title: 'About - Khyontekai.com',
+  title: 'About - Khyontek.ai',
   description: 'Learn about Khyontek AI, a research-first AI company based in Guwahati, Assam, building biological intelligence for underrepresented populations.',
 }
 

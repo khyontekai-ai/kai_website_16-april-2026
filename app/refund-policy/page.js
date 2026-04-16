@@ -1,7 +1,7 @@
 import { ArrowUp } from 'lucide-react'
 
 export const metadata = {
-  title: 'Refund Policy - Khyontekai.com',
+  title: 'Refund Policy - Khyontek.ai',
   description: 'Refund Policy for Khyontek AI programmes.',
 }
 

@@ -214,7 +214,7 @@ export default function HomePage() {
                 <span className="text-amber-gold">Globally Relevant.</span>
               </h2>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Khyontekai is rooted in India's vibrant research ecosystem, but our vision extends far beyond borders. We believe that meaningful AI innovation can emerge from anywhere.
+                Khyontek.ai is rooted in India's vibrant research ecosystem, but our vision extends far beyond borders. We believe that meaningful AI innovation can emerge from anywhere.
               </p>
               <p className="text-gray-300 leading-relaxed mb-8">
                 Our approach combines the rigour of academic research with the agility of a focused research lab. We collaborate with universities, research institutions, and industry partners to tackle problems that matter.

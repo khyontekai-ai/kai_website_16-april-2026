@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowUp } from 'lucide-react'
 
 export const metadata = {
-  title: 'Privacy Policy - Khyontekai.com',
+  title: 'Privacy Policy - Khyontek.ai',
   description: 'Privacy Policy for Khyontek AI Pvt Ltd.',
 }
 
