@@ -1,0 +1,47 @@
+[
+    {
+        "id":  "1",
+        "title":  "ComplianceAI",
+        "status":  "In Progress",
+        "timeline":  "Q3 2026",
+        "description":  "A large-scale compliance intelligence tool that helps the current business holders and newly business holders with their financial compliances, ready to implement plans, competitive surveys, etc. ",
+        "details":  "The BizStart Companion is an intelligent AI-driven platform designed to simplify the entrepreneurial journey for first-time and established business owners in Northeast India. By streamlining complex compliance requirements—such as GST registration, FSSAI licensing, and Udyam certification—and intelligently matching founders with relevant government financial schemes like PMEGP and MUDRA, BizStart demystifies the administrative hurdles of starting a business. The platform provides localized, step-by-step guidance, actionable roadmaps, and automated document generation, ensuring that emerging entrepreneurs can focus on building their vision rather than navigating bureaucratic red tape.\nUnlike general-purpose AI models like ChatGPT or Gemini, which often provide broad and occasionally inaccurate business advice, BizStart is hyper-localized and domain-specific. It is purpose-built for the Indian regulatory environment, offering precise, actionable, and up-to-date roadmaps for regional compliance rather than vague suggestions. Furthermore, BizStart prioritizes user privacy through local, client-side encryption of sensitive business data—ensuring that your proprietary business plans and Personally Identifiable Information (PII) remain entirely under your control and are never exposed or used to train public AI models.",
+        "createdAt":  "2026-06-03T16:57:06.286Z"
+    },
+    {
+        "id":  "2",
+        "title":  "Vector-Borne Disease Early Warning System",
+        "status":  "Planning",
+        "timeline":  "Q4 2026",
+        "description":  "An AI-powered surveillance and early warning platform for vector-borne diseases such as dengue, malaria, and Japanese encephalitis, specifically calibrated for the epidemiological patterns of Assam and the broader Northeast Indian region.",
+        "details":  "Leveraging satellite imagery, rainfall and temperature data, hospital admission records, and community health worker reports, this system will generate district-level risk forecasts up to four weeks in advance. The platform will be designed for integration with the Assam state health infrastructure and tested in partnership with local health authorities.",
+        "createdAt":  "2026-06-03T16:57:06.286Z"
+    },
+    {
+        "id":  "3",
+        "title":  "Assamese \u0026 Bodo NLP Benchmark Suite",
+        "status":  "Planning",
+        "timeline":  "Q1 2027",
+        "description":  "A comprehensive natural language processing benchmark and dataset suite for Assamese and Bodo languages, addressing the near-total absence of these languages in global NLP evaluation frameworks.",
+        "details":  "This project will produce annotated corpora, evaluation benchmarks, and fine-tuned language models for two of Northeast India\u0027s most widely spoken languages. Tasks will include named entity recognition, sentiment analysis, machine translation, and question answering. All datasets will be released publicly to support the broader research community.",
+        "createdAt":  "2026-06-03T16:57:06.286Z"
+    },
+    {
+        "id":  "4",
+        "title":  "Thalassaemia Carrier Screening AI Tool",
+        "status":  "Concept",
+        "timeline":  "Q2 2027",
+        "description":  "A clinical decision-support tool for thalassaemia carrier identification using blood count parameters and population-specific genetic risk profiles, designed for deployment in primary health centres with limited laboratory infrastructure.",
+        "details":  "Northeast India has among the highest prevalence of haemoglobinopathies in the country, yet carrier screening remains inconsistent across primary and secondary care settings. This tool will allow frontline health workers to flag at-risk individuals using routine CBC data, reducing the burden on expensive genetic testing while improving early detection rates across the region.",
+        "createdAt":  "2026-06-03T16:57:06.286Z"
+    },
+    {
+        "id":  "5",
+        "title":  "Adda AI",
+        "status":  "Concept",
+        "timeline":  "Q1 2027",
+        "description":  "The smartest vibe-matching restaurant finder built for Gen-Z.",
+        "details":  "A modern, highly-visual consumer application using AI to understand user preferences, social vibes, and contextual data to recommend dining and social experiences.",
+        "createdAt":  "2026-06-03T14:37:33.024Z"
+    }
+]

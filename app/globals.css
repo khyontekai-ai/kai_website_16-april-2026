@@ -84,3 +84,14 @@
     border-right: 3px solid #F5A623;
   }
 }
+@keyframes float-ambient {
+  0% { transform: translateY(0px) scale(0.95); opacity: 0; }
+  20% { opacity: 0.8; }
+  50% { transform: translateY(-20px) scale(1); opacity: 1; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-40px) scale(0.95); opacity: 0; }
+}
+
+.animate-float-ambient {
+  animation: float-ambient 8s ease-in-out infinite;
+}

@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Brain, FlaskConical, MapPin, Cpu, Cog, Handshake, ShieldCheck, Lightbulb, BarChart3, Languages } from 'lucide-react'
+import ReviewsDashboard from '@/components/ui/ReviewsDashboard'
+import FeaturedWork from '@/components/ui/FeaturedWork'
 
 export default function HomePage() {
   return (
@@ -40,6 +42,12 @@ export default function HomePage() {
                   className="px-8 py-3.5 bg-amber-gold text-dark-navy font-bold rounded-lg hover:bg-amber-500 transition-colors text-center"
                 >
                   Join Our Programme
+                </Link>
+                <Link
+                  href="/#reviews"
+                  className="px-8 py-3.5 border-2 border-white/20 text-white font-bold rounded-lg hover:bg-white/10 transition-colors text-center"
+                >
+                  See Student Case Study
                 </Link>
               </div>
             </div>
@@ -88,35 +96,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Work Section */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark-navy text-center mb-12">
-            What We Work On
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Biological Intelligence',
-                desc: 'Multi-modal AI and genomic data systems designed for disease contexts prevalent in Northeast India and South and Southeast Asia.',
-              },
-              {
-                title: 'Population Genomics',
-                desc: 'Building and curating datasets that represent tribal and indigenous communities severely underrepresented in global biomedical databases.',
-              },
-              {
-                title: 'Regulatory and Ethical Frameworks',
-                desc: 'AI development that is DPDPA-compliant, ABDM-compatible, and ethically accountable to the communities it serves.',
-              },
-            ].map((card, i) => (
-              <div key={i} className="p-8 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-bold text-dark-navy mb-3">{card.title}</h3>
-                <p className="text-dark-grey text-sm leading-relaxed">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Reviews Dashboard / Case Study */}
+      <ReviewsDashboard />
+
+      {/* Featured Work / Case Studies Section */}
+      <FeaturedWork />
 
       {/* Core Capabilities Section */}
       <section className="bg-light-grey py-16 md:py-20">

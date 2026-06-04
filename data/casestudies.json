@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Biological Intelligence",
+    "description": "Multi-modal AI and genomic data systems designed for disease contexts prevalent in Northeast India and South and Southeast Asia.",
+    "link": "/research#bio-intelligence",
+    "createdAt": "2026-06-04T13:57:22.873Z"
+  },
+  {
+    "id": "2",
+    "title": "Population Genomics",
+    "description": "Building and curating datasets that represent tribal and indigenous communities severely underrepresented in global biomedical databases.",
+    "link": "/research#pop-genomics",
+    "createdAt": "2026-06-04T13:57:22.873Z"
+  },
+  {
+    "id": "3",
+    "title": "Regulatory and Ethical Frameworks",
+    "description": "AI development that is DPDPA-compliant, ABDM-compatible, and ethically accountable to the communities it serves.",
+    "link": "/research#ethics",
+    "createdAt": "2026-06-04T13:57:22.873Z"
+  }
+]
