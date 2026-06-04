@@ -81,7 +81,7 @@ export default function ContactPage() {
                   <Instagram className="w-5 h-5 text-royal-blue mt-1 shrink-0" />
                   <div>
                     <p className="text-sm text-mid-grey">Instagram</p>
-                    <a href="https://instagram.com/khyontekai" target="_blank" rel="noopener noreferrer" className="text-dark-navy font-semibold hover:text-royal-blue transition-colors">@khyontek.ai</a>
+                    <a href="https://www.instagram.com/khyontek.ai/" target="_blank" rel="noopener noreferrer" className="text-dark-navy font-semibold hover:text-royal-blue transition-colors">@khyontek.ai</a>
                   </div>
                 </div>
               </div>
