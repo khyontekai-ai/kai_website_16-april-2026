@@ -63,7 +63,7 @@ export default function Footer() {
               <a href="https://www.instagram.com/khyontek.ai/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-gold transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-gold transition-colors">
+              <a href="https://github.com/khyontekai-ai" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-gold transition-colors">
                 <Github size={20} />
               </a>
               <a href="https://huggingface.co/KhyontekAI" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-gold transition-colors">
