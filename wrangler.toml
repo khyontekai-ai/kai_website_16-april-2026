@@ -1,0 +1,8 @@
+# wrangler.toml for Khyontek AI Next.js deployment
+name = "kai-website-16-april-2026"
+main = ".vercel/output/static/_worker.js"
+compatibility_date = "2026-07-14"
+compatibility_flags = [ "nodejs_compat" ]
+
+[build]
+command = "npx @cloudflare/next-on-pages"
