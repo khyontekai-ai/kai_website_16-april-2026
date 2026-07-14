@@ -2,9 +2,6 @@ import { MongoClient } from 'mongodb'
 import { v4 as uuidv4 } from 'uuid'
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import fs from 'fs'
-import pathLib from 'path'
-
 // MongoDB connection
 let client
 let db
@@ -21,33 +18,17 @@ async function connectToMongo() {
   return db
 }
 
-// Local File-system Fallback Database Adapter
-function getLocalFilePath(filename) {
-  const dataDir = pathLib.join(process.cwd(), 'data')
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
-  return pathLib.join(dataDir, filename)
-}
-
+// In-Memory Fallback Database Adapter (replaces fs because Cloudflare Workers has no writeable local filesystem)
 const localDb = {
+  collections: {},
   async getCollection(collectionName, defaultData) {
-    const filePath = getLocalFilePath(`${collectionName}.json`)
-    if (!fs.existsSync(filePath)) {
-      fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2))
-      return defaultData
+    if (!this.collections[collectionName]) {
+      this.collections[collectionName] = defaultData || []
     }
-    try {
-      const content = fs.readFileSync(filePath, 'utf-8')
-      return JSON.parse(content)
-    } catch (e) {
-      console.error(`Error reading local ${collectionName} collection:`, e)
-      return defaultData
-    }
+    return this.collections[collectionName]
   },
   async saveCollection(collectionName, data) {
-    const filePath = getLocalFilePath(`${collectionName}.json`)
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
+    this.collections[collectionName] = data
   }
 }
 
