@@ -4,5 +4,9 @@ main = ".vercel/output/static/_worker.js"
 compatibility_date = "2026-07-14"
 compatibility_flags = [ "nodejs_compat" ]
 
+[assets]
+directory = ".vercel/output/static"
+binding = "ASSETS"
+
 [build]
 command = "npx @cloudflare/next-on-pages"
