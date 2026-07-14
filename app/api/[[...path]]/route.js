@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { NextResponse } from 'next/server'
 
 // ============================================================
@@ -405,7 +404,7 @@ async function handleRoute(request, { params }) {
 
       // Create registration document
       const registration = {
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         fullName,
         email,
         phone,
@@ -498,7 +497,7 @@ async function handleRoute(request, { params }) {
 
       // Create contact document
       const contact = {
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         name,
         email,
         subject,
@@ -592,7 +591,7 @@ async function handleRoute(request, { params }) {
         return handleCORS(NextResponse.json({ error: 'All fields are required' }, { status: 400 }))
       }
       const newProj = {
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         title,
         status,
         timeline,
@@ -656,7 +655,7 @@ async function handleRoute(request, { params }) {
         return handleCORS(NextResponse.json({ error: 'All fields are required' }, { status: 400 }))
       }
       const newReview = {
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         name,
         rating: Number(rating),
         text,
@@ -718,7 +717,7 @@ async function handleRoute(request, { params }) {
         return handleCORS(NextResponse.json({ error: 'Title and description are required' }, { status: 400 }))
       }
       const newCaseStudy = {
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         title,
         description,
         link: link || '',
