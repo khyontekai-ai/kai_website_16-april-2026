@@ -16,8 +16,73 @@ node_modules/
 !.yarn/releases
 !.yarn/versions
 
+# Lock files — project uses yarn, suppress npm lock file
+package-lock.json
+
 # Testing
 /coverage
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Production builds
+/build
+dist/
+
+# Environment and credential files
+.env
+.env.*
+*.env
+*token.json*
+*credentials.json*
+credentials.json
+*.pem
+*.key
+.credentials
+
+# Logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dump.rdb
+
+# System files
+.DS_Store
+
+# Python
+__pycache__/
+*pyc*
+venv/
+.venv/
+
+# Development tools
+chainlit.md
+.chainlit
+.ipynb_checkpoints/
+.ac
+
+# Deployment
+.vercel
+
+# Archive files and large assets
+**/*.zip
+**/*.tar.gz
+**/*.tar
+**/*.tgz
+*.pack
+*.deb
+*.dylib
+
+# Build caches
+.cache/
+
+# Secrets
+memory/test_credentials.md
+
 
 # Next.js
 /.next/
