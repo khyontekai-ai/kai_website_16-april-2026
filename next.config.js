@@ -6,7 +6,7 @@ const nextConfig = {
     // Remove if not using Server Components
     serverComponentsExternalPackages: ['mongodb'],
   },
-  webpack(config, { dev }) {
+  webpack(config, { dev, isServer, nextRuntime }) {
     if (dev) {
       // Reduce CPU/memory from file watching
       config.watchOptions = {
@@ -15,6 +15,29 @@ const nextConfig = {
         ignored: ['**/node_modules'],
       };
     }
+
+    // Polyfill/mock Node.js built-ins to prevent compilation crashes on edge runtime
+    if (!isServer || nextRuntime === 'edge') {
+      const path = require('path');
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        mongodb: path.resolve(__dirname, 'lib/mongodb-mock.js'),
+      };
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        crypto: false,
+        child_process: false,
+        'fs/promises': false,
+        net: false,
+        dns: false,
+        tls: false,
+        fs: false,
+        path: false,
+        os: false,
+        '@react-email/render': false,
+      };
+    }
+
     return config;
   },
   onDemandEntries: {
