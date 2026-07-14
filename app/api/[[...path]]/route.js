@@ -1,24 +1,42 @@
-import { MongoClient } from 'mongodb'
 import { v4 as uuidv4 } from 'uuid'
 import { NextResponse } from 'next/server'
-import { Resend } from 'resend'
-// MongoDB connection
-let client
-let db
 
-async function connectToMongo() {
-  if (!process.env.MONGO_URL) {
-    throw new Error('MONGO_URL env variable not defined')
+// ============================================================
+// MongoDB Atlas Data API (replaces the Node.js mongodb driver)
+// Uses pure fetch() — fully compatible with Cloudflare Edge
+// ============================================================
+async function mongoDataAPI(action, collection, body = {}) {
+  const endpoint = process.env.MONGO_DATA_API_ENDPOINT
+  const apiKey   = process.env.MONGO_DATA_API_KEY
+  if (!endpoint || !apiKey) return null
+
+  const payload = {
+    dataSource: process.env.MONGO_DATA_SOURCE || 'Cluster0',
+    database:   process.env.DB_NAME || 'khyontek',
+    collection,
+    ...body,
   }
-  if (!client) {
-    client = new MongoClient(process.env.MONGO_URL)
-    await client.connect()
-    db = client.db(process.env.DB_NAME)
+  try {
+    const res = await fetch(`${endpoint}/action/${action}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': apiKey,
+      },
+      body: JSON.stringify(payload),
+    })
+    if (!res.ok) {
+      console.error(`MongoDB Data API ${action} failed:`, await res.text())
+      return null
+    }
+    return await res.json()
+  } catch (err) {
+    console.error(`MongoDB Data API error (${action}):`, err)
+    return null
   }
-  return db
 }
 
-// In-Memory Fallback Database Adapter (replaces fs because Cloudflare Workers has no writeable local filesystem)
+// In-Memory Fallback Database Adapter
 const localDb = {
   collections: {},
   async getCollection(collectionName, defaultData) {
@@ -34,191 +52,100 @@ const localDb = {
 
 // Data access abstraction layer
 async function getProjectsCollection() {
-  if (process.env.MONGO_URL) {
-    try {
-      const database = await connectToMongo()
-      return {
-        type: 'mongo',
-        find: async () => {
-          let list = await database.collection('projects').find({}).toArray()
-          if (list.length === 0) {
-            const seeded = defaultProjects.map(p => ({ ...p, createdAt: new Date() }))
-            await database.collection('projects').insertMany(seeded)
-            list = await database.collection('projects').find({}).toArray()
-          }
-          return list
-        },
-        insertOne: async (item) => {
-          await database.collection('projects').insertOne(item)
-        },
-        updateOne: async (id, update) => {
-          return await database.collection('projects').updateOne({ id }, { $set: update })
-        },
-        deleteOne: async (id) => {
-          return await database.collection('projects').deleteOne({ id })
+  if (process.env.MONGO_DATA_API_ENDPOINT) {
+    return {
+      type: 'mongo',
+      find: async () => {
+        const result = await mongoDataAPI('find', 'projects', { filter: {} })
+        if (result && result.documents && result.documents.length > 0) return result.documents
+        // Seed defaults
+        for (const p of defaultProjects) {
+          await mongoDataAPI('insertOne', 'projects', { document: { ...p, createdAt: new Date().toISOString() } })
         }
+        const seeded = await mongoDataAPI('find', 'projects', { filter: {} })
+        return seeded?.documents || defaultProjects
+      },
+      insertOne: async (item) => {
+        await mongoDataAPI('insertOne', 'projects', { document: item })
+      },
+      updateOne: async (id, update) => {
+        const result = await mongoDataAPI('updateOne', 'projects', { filter: { id }, update: { '$set': update } })
+        return { matchedCount: result?.matchedCount || 0 }
+      },
+      deleteOne: async (id) => {
+        const result = await mongoDataAPI('deleteOne', 'projects', { filter: { id } })
+        return { deletedCount: result?.deletedCount || 0 }
       }
-    } catch (err) {
-      console.warn('MongoDB connection failed for projects, falling back to local file storage:', err.message)
     }
   }
-
   // File fallback
   return {
     type: 'local',
-    find: async () => {
-      return await localDb.getCollection('projects', defaultProjects)
-    },
-    insertOne: async (item) => {
-      const list = await localDb.getCollection('projects', defaultProjects)
-      list.push(item)
-      await localDb.saveCollection('projects', list)
-    },
-    updateOne: async (id, update) => {
-      const list = await localDb.getCollection('projects', defaultProjects)
-      const idx = list.findIndex(p => p.id === id)
-      if (idx === -1) return { matchedCount: 0 }
-      list[idx] = { ...list[idx], ...update }
-      await localDb.saveCollection('projects', list)
-      return { matchedCount: 1 }
-    },
-    deleteOne: async (id) => {
-      const list = await localDb.getCollection('projects', defaultProjects)
-      const filtered = list.filter(p => p.id !== id)
-      if (filtered.length === list.length) return { deletedCount: 0 }
-      await localDb.saveCollection('projects', filtered)
-      return { deletedCount: 1 }
-    }
+    find: async () => await localDb.getCollection('projects', defaultProjects),
+    insertOne: async (item) => { const list = await localDb.getCollection('projects', defaultProjects); list.push(item); await localDb.saveCollection('projects', list) },
+    updateOne: async (id, update) => { const list = await localDb.getCollection('projects', defaultProjects); const idx = list.findIndex(p => p.id === id); if (idx === -1) return { matchedCount: 0 }; list[idx] = { ...list[idx], ...update }; await localDb.saveCollection('projects', list); return { matchedCount: 1 } },
+    deleteOne: async (id) => { const list = await localDb.getCollection('projects', defaultProjects); const filtered = list.filter(p => p.id !== id); if (filtered.length === list.length) return { deletedCount: 0 }; await localDb.saveCollection('projects', filtered); return { deletedCount: 1 } }
   }
 }
 
 async function getReviewsCollection() {
-  if (process.env.MONGO_URL) {
-    try {
-      const database = await connectToMongo()
-      return {
-        type: 'mongo',
-        find: async () => {
-          let list = await database.collection('reviews').find({}).toArray()
-          if (list.length === 0) {
-            const seeded = defaultReviews.map(r => ({ ...r, createdAt: new Date() }))
-            await database.collection('reviews').insertMany(seeded)
-            list = await database.collection('reviews').find({}).toArray()
-          }
-          return list
-        },
-        insertOne: async (item) => {
-          await database.collection('reviews').insertOne(item)
-        },
-        updateOne: async (id, update) => {
-          return await database.collection('reviews').updateOne({ id }, { $set: update })
-        },
-        deleteOne: async (id) => {
-          return await database.collection('reviews').deleteOne({ id })
+  if (process.env.MONGO_DATA_API_ENDPOINT) {
+    return {
+      type: 'mongo',
+      find: async () => {
+        const result = await mongoDataAPI('find', 'reviews', { filter: {} })
+        if (result && result.documents && result.documents.length > 0) return result.documents
+        for (const r of defaultReviews) {
+          await mongoDataAPI('insertOne', 'reviews', { document: { ...r, createdAt: new Date().toISOString() } })
         }
-      }
-    } catch (err) {
-      console.warn('MongoDB connection failed for reviews, falling back to local file storage:', err.message)
+        const seeded = await mongoDataAPI('find', 'reviews', { filter: {} })
+        return seeded?.documents || defaultReviews
+      },
+      insertOne: async (item) => { await mongoDataAPI('insertOne', 'reviews', { document: item }) },
+      updateOne: async (id, update) => { const result = await mongoDataAPI('updateOne', 'reviews', { filter: { id }, update: { '$set': update } }); return { matchedCount: result?.matchedCount || 0 } },
+      deleteOne: async (id) => { const result = await mongoDataAPI('deleteOne', 'reviews', { filter: { id } }); return { deletedCount: result?.deletedCount || 0 } }
     }
   }
-
-  // File fallback
   return {
     type: 'local',
-    find: async () => {
-      return await localDb.getCollection('reviews', defaultReviews)
-    },
-    insertOne: async (item) => {
-      const list = await localDb.getCollection('reviews', defaultReviews)
-      list.push(item)
-      await localDb.saveCollection('reviews', list)
-    },
-    updateOne: async (id, update) => {
-      const list = await localDb.getCollection('reviews', defaultReviews)
-      const idx = list.findIndex(r => r.id === id)
-      if (idx === -1) return { matchedCount: 0 }
-      list[idx] = { ...list[idx], ...update }
-      await localDb.saveCollection('reviews', list)
-      return { matchedCount: 1 }
-    },
-    deleteOne: async (id) => {
-      const list = await localDb.getCollection('reviews', defaultReviews)
-      const filtered = list.filter(r => r.id !== id)
-      if (filtered.length === list.length) return { deletedCount: 0 }
-      await localDb.saveCollection('reviews', filtered)
-      return { deletedCount: 1 }
-    }
+    find: async () => await localDb.getCollection('reviews', defaultReviews),
+    insertOne: async (item) => { const list = await localDb.getCollection('reviews', defaultReviews); list.push(item); await localDb.saveCollection('reviews', list) },
+    updateOne: async (id, update) => { const list = await localDb.getCollection('reviews', defaultReviews); const idx = list.findIndex(r => r.id === id); if (idx === -1) return { matchedCount: 0 }; list[idx] = { ...list[idx], ...update }; await localDb.saveCollection('reviews', list); return { matchedCount: 1 } },
+    deleteOne: async (id) => { const list = await localDb.getCollection('reviews', defaultReviews); const filtered = list.filter(r => r.id !== id); if (filtered.length === list.length) return { deletedCount: 0 }; await localDb.saveCollection('reviews', filtered); return { deletedCount: 1 } }
   }
 }
 
 async function getCaseStudiesCollection() {
-  if (process.env.MONGO_URL) {
-    try {
-      const database = await connectToMongo()
-      return {
-        type: 'mongo',
-        find: async () => {
-          let list = await database.collection('casestudies').find({}).toArray()
-          if (list.length === 0) {
-            const seeded = defaultCaseStudies.map(cs => ({ ...cs, createdAt: new Date() }))
-            await database.collection('casestudies').insertMany(seeded)
-            list = await database.collection('casestudies').find({}).toArray()
-          }
-          return list
-        },
-        insertOne: async (item) => {
-          await database.collection('casestudies').insertOne(item)
-        },
-        updateOne: async (id, update) => {
-          return await database.collection('casestudies').updateOne({ id }, { $set: update })
-        },
-        deleteOne: async (id) => {
-          return await database.collection('casestudies').deleteOne({ id })
+  if (process.env.MONGO_DATA_API_ENDPOINT) {
+    return {
+      type: 'mongo',
+      find: async () => {
+        const result = await mongoDataAPI('find', 'casestudies', { filter: {} })
+        if (result && result.documents && result.documents.length > 0) return result.documents
+        for (const cs of defaultCaseStudies) {
+          await mongoDataAPI('insertOne', 'casestudies', { document: { ...cs, createdAt: new Date().toISOString() } })
         }
-      }
-    } catch (err) {
-      console.warn('MongoDB connection failed for casestudies, falling back to local file storage:', err.message)
+        const seeded = await mongoDataAPI('find', 'casestudies', { filter: {} })
+        return seeded?.documents || defaultCaseStudies
+      },
+      insertOne: async (item) => { await mongoDataAPI('insertOne', 'casestudies', { document: item }) },
+      updateOne: async (id, update) => { const result = await mongoDataAPI('updateOne', 'casestudies', { filter: { id }, update: { '$set': update } }); return { matchedCount: result?.matchedCount || 0 } },
+      deleteOne: async (id) => { const result = await mongoDataAPI('deleteOne', 'casestudies', { filter: { id } }); return { deletedCount: result?.deletedCount || 0 } }
     }
   }
-
-  // File fallback
   return {
     type: 'local',
-    find: async () => {
-      return await localDb.getCollection('casestudies', defaultCaseStudies)
-    },
-    insertOne: async (item) => {
-      const list = await localDb.getCollection('casestudies', defaultCaseStudies)
-      list.push(item)
-      await localDb.saveCollection('casestudies', list)
-    },
-    updateOne: async (id, update) => {
-      const list = await localDb.getCollection('casestudies', defaultCaseStudies)
-      const idx = list.findIndex(cs => cs.id === id)
-      if (idx === -1) return { matchedCount: 0 }
-      list[idx] = { ...list[idx], ...update }
-      await localDb.saveCollection('casestudies', list)
-      return { matchedCount: 1 }
-    },
-    deleteOne: async (id) => {
-      const list = await localDb.getCollection('casestudies', defaultCaseStudies)
-      const filtered = list.filter(cs => cs.id !== id)
-      if (filtered.length === list.length) return { deletedCount: 0 }
-      await localDb.saveCollection('casestudies', filtered)
-      return { deletedCount: 1 }
-    }
+    find: async () => await localDb.getCollection('casestudies', defaultCaseStudies),
+    insertOne: async (item) => { const list = await localDb.getCollection('casestudies', defaultCaseStudies); list.push(item); await localDb.saveCollection('casestudies', list) },
+    updateOne: async (id, update) => { const list = await localDb.getCollection('casestudies', defaultCaseStudies); const idx = list.findIndex(cs => cs.id === id); if (idx === -1) return { matchedCount: 0 }; list[idx] = { ...list[idx], ...update }; await localDb.saveCollection('casestudies', list); return { matchedCount: 1 } },
+    deleteOne: async (id) => { const list = await localDb.getCollection('casestudies', defaultCaseStudies); const filtered = list.filter(cs => cs.id !== id); if (filtered.length === list.length) return { deletedCount: 0 }; await localDb.saveCollection('casestudies', filtered); return { deletedCount: 1 } }
   }
 }
 
 async function saveRegistration(registration) {
-  if (process.env.MONGO_URL) {
-    try {
-      const database = await connectToMongo()
-      await database.collection('registrations').insertOne(registration)
-      return
-    } catch (err) {
-      console.warn('MongoDB registration save failed, falling back to local file storage:', err.message)
-    }
+  if (process.env.MONGO_DATA_API_ENDPOINT) {
+    const result = await mongoDataAPI('insertOne', 'registrations', { document: registration })
+    if (result) return
   }
   const list = await localDb.getCollection('registrations', [])
   list.push(registration)
@@ -226,24 +153,47 @@ async function saveRegistration(registration) {
 }
 
 async function saveContact(contact) {
-  if (process.env.MONGO_URL) {
-    try {
-      const database = await connectToMongo()
-      await database.collection('contacts').insertOne(contact)
-      return
-    } catch (err) {
-      console.warn('MongoDB contact save failed, falling back to local file storage:', err.message)
-    }
+  if (process.env.MONGO_DATA_API_ENDPOINT) {
+    const result = await mongoDataAPI('insertOne', 'contacts', { document: contact })
+    if (result) return
   }
   const list = await localDb.getCollection('contacts', [])
   list.push(contact)
   await localDb.saveCollection('contacts', list)
 }
 
-// Resend client
-function getResend() {
-  if (!process.env.RESEND_API_KEY) return null
-  return new Resend(process.env.RESEND_API_KEY)
+// ============================================================
+// Resend Email via REST API (replaces the resend npm SDK)
+// Uses pure fetch() — fully compatible with Cloudflare Edge
+// ============================================================
+async function sendEmail(to, subject, html) {
+  if (!process.env.RESEND_API_KEY) {
+    console.log('Resend not configured, skipping email to:', to)
+    return null
+  }
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: 'Khyontek AI <contact@khyontekai.com>',
+        to: Array.isArray(to) ? to : [to],
+        subject,
+        html,
+      }),
+    })
+    if (!res.ok) {
+      console.error('Email send error:', await res.text())
+      return null
+    }
+    return await res.json()
+  } catch (err) {
+    console.error('Email exception:', err)
+    return null
+  }
 }
 
 // Admin Password Authorization Helper
@@ -388,30 +338,6 @@ export async function OPTIONS() {
   return handleCORS(new NextResponse(null, { status: 200 }))
 }
 
-// Send email helper
-async function sendEmail(to, subject, html) {
-  const resend = getResend()
-  if (!resend) {
-    console.log('Resend not configured, skipping email to:', to)
-    return null
-  }
-  try {
-    const { data, error } = await resend.emails.send({
-      from: 'Khyontek AI <contact@khyontekai.com>',
-      to: Array.isArray(to) ? to : [to],
-      subject,
-      html,
-    })
-    if (error) {
-      console.error('Email send error:', error)
-      return null
-    }
-    return data
-  } catch (err) {
-    console.error('Email exception:', err)
-    return null
-  }
-}
 
 // Route handler function
 async function handleRoute(request, { params }) {
