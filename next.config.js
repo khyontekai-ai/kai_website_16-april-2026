@@ -16,13 +16,14 @@ const nextConfig = {
       };
     }
 
+    const path = require('path');
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      mongodb: path.resolve(__dirname, 'lib/mongodb-mock.js'),
+    };
+
     // Polyfill/mock Node.js built-ins to prevent compilation crashes on edge runtime
     if (!isServer || nextRuntime === 'edge') {
-      const path = require('path');
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        mongodb: path.resolve(__dirname, 'lib/mongodb-mock.js'),
-      };
       config.resolve.fallback = {
         ...config.resolve.fallback,
         crypto: false,
