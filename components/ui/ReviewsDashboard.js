@@ -9,6 +9,17 @@ const studentSites = [
   { name: 'EyeMuse Luxe', url: 'https://eyemuse-luxe-75960777019.asia-southeast1.run.app' }
 ]
 
+function formatName(fullName) {
+  if (!fullName) return '';
+  const parts = fullName.trim().split(/\s+/);
+  if (parts.length === 1) return fullName;
+  const firstName = parts[0];
+  const lastNames = parts.slice(1).join(' ');
+  // Handle case where name might have a comma like "Participant, Tangla"
+  const initial = firstName.replace(/,/g, '').charAt(0);
+  return `${initial}. ${lastNames}`;
+}
+
 function StarRating({ rating }) {
   return (
     <div className="flex gap-0.5">
@@ -284,7 +295,7 @@ export default function ReviewsDashboard() {
                   }}
                 >
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs font-bold text-dark-navy font-nunito truncate">{rev.name}</span>
+                    <span className="text-xs font-bold text-dark-navy font-nunito truncate">{formatName(rev.name)}</span>
                     <StarRating rating={rev.rating} />
                   </div>
                   <p className="text-xs text-mid-grey line-clamp-3 italic font-nunito leading-relaxed">"{rev.text}"</p>
@@ -325,7 +336,7 @@ export default function ReviewsDashboard() {
                             <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-amber-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             
                             <div className="flex items-center justify-between mb-3">
-                              <span className="text-sm font-bold text-dark-navy font-nunito">{review.name}</span>
+                              <span className="text-sm font-bold text-dark-navy font-nunito">{formatName(review.name)}</span>
                               <StarRating rating={review.rating} />
                             </div>
                             <p className="text-dark-grey text-sm leading-relaxed font-nunito font-light italic">
