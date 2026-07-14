@@ -11,6 +11,7 @@ const quickLinks = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Research', href: '/research' },
+  { name: 'Upcoming Projects', href: '/upcoming-projects' },
   { name: 'Programmes', href: '/programmes' },
   { name: 'Contact', href: '/contact' },
 ]
