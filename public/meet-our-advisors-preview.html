@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Our Team & Advisors - Khyontek AI (Marquee Preview)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'royal-blue': '#2B3EAA',
+            'amber-gold': '#F5A623',
+            'dark-navy': '#1A2870',
+            'pale-blue': '#EEF0FC',
+            'light-grey': '#F3F4F6',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #1A2870;
+      color: #ffffff;
+    }
+    .glass-card {
+      background: linear-gradient(180deg, #131F59 0%, #0E1742 100%);
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 35s linear infinite;
+    }
+
+    .animate-marquee-track:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden bg-dark-navy">
+
+  <!-- Background Glow Orbs -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-gradient-to-b from-royal-blue/30 via-royal-blue/10 to-transparent blur-[140px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-gold/10 blur-[160px] pointer-events-none"></div>
+
+  <main class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+
+    <!-- Header Section -->
+    <div class="mx-auto mb-16 flex max-w-4xl flex-col items-center px-6 text-center lg:px-0">
+      <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-amber-gold p-2.5 shadow-lg border border-amber-gold/50 overflow-hidden">
+        <img src="./audience.png" alt="Audience Icon" class="h-full w-full object-contain">
+      </div>
+
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-gold/10 border border-amber-gold/30 text-amber-gold text-xs font-bold tracking-widest uppercase mb-4">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        <span>Founders & Advisory Leadership</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4">
+        MEET OUR <span class="text-amber-gold">TEAM & ADVISORS</span>
+      </h1>
+
+      <p class="max-w-2xl text-gray-200 text-base sm:text-lg font-light leading-relaxed">
+        Pioneering researchers, engineers, legal strategists, and academic leaders building population-first AI solutions for Northeast India and beyond.
+      </p>
+    </div>
+
+    <!-- Infinite Marquee Slider Container -->
+    <div class="relative w-full overflow-hidden">
+      <!-- Gradient Fades on Edges -->
+      <div class="pointer-events-none absolute top-0 left-0 z-20 h-full w-24 sm:w-36 bg-gradient-to-r from-dark-navy to-transparent"></div>
+      <div class="pointer-events-none absolute top-0 right-0 z-20 h-full w-24 sm:w-36 bg-gradient-to-l from-dark-navy to-transparent"></div>
+
+      <!-- Sliding Track -->
+      <div class="animate-marquee-track py-4 gap-6">
+
+        <!-- Member 1: Dr. Pritam Deka -->
+        <div onclick="openModal('pritam')" class="group flex w-72 sm:w-80 shrink-0 flex-col rounded-2xl glass-card border border-white/10 hover:border-amber-gold transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl p-5 hover:shadow-[0_0_30px_rgba(245,166,35,0.3)]">
+          <div class="relative h-80 w-full overflow-hidden rounded-xl bg-dark-navy mb-4 border border-white/10 transition-colors">
+            <img src="./Advisory images/Pritam_enhanced.png" alt="Dr. Pritam Deka" class="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-navy via-transparent to-transparent opacity-80"></div>
+            <div class="absolute top-3 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-gold/15 text-amber-gold border border-amber-gold/40">Founder & CEO</span>
+            </div>
+          </div>
+          <h3 class="font-bold text-white uppercase text-base tracking-wide group-hover:text-amber-gold transition-colors mb-0.5">DR. PRITAM DEKA</h3>
+          <p class="text-xs font-semibold text-amber-gold mb-0.5">Founder & CEO</p>
+          <p class="text-[11px] text-gray-300 font-medium mb-3">Khyontek AI</p>
+          <p class="text-xs text-gray-200 leading-relaxed font-light line-clamp-2 mb-4">Dr. Pritam Deka is Founder & CEO at Khyontek AI. PhD from Queen's University Belfast in trustworthy AI and health misinformation.</p>
+          <button class="w-full mt-auto py-2 px-3 rounded-lg bg-royal-blue text-white group-hover:bg-amber-gold group-hover:text-dark-navy font-bold text-xs flex items-center justify-between transition-colors shadow">
+            <span>View Profile & Highlights</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Member 2: Nayan J Kalita -->
+        <div onclick="openModal('nayan')" class="group flex w-72 sm:w-80 shrink-0 flex-col rounded-2xl glass-card border border-white/10 hover:border-amber-gold transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl p-5 hover:shadow-[0_0_30px_rgba(245,166,35,0.3)]">
+          <div class="relative h-80 w-full overflow-hidden rounded-xl bg-dark-navy mb-4 border border-white/10 transition-colors">
+            <img src="./Advisory images/Nayan_Kalita_enhanced.png" alt="Nayan J Kalita" class="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-navy via-transparent to-transparent opacity-80"></div>
+            <div class="absolute top-3 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-gold/15 text-amber-gold border border-amber-gold/40">Co-Founder & CSO</span>
+            </div>
+          </div>
+          <h3 class="font-bold text-white uppercase text-base tracking-wide group-hover:text-amber-gold transition-colors mb-0.5">NAYAN J KALITA</h3>
+          <p class="text-xs font-semibold text-amber-gold mb-0.5">Co-Founder & CSO</p>
+          <p class="text-[11px] text-gray-300 font-medium mb-3">Khyontek AI</p>
+          <p class="text-xs text-gray-200 leading-relaxed font-light line-clamp-2 mb-4">Nayan J Kalita is Co-Founder & Chief Strategy Officer at Khyontek AI. NLP & ML expert specializing in low-resource systems for Assamese and Manipuri.</p>
+          <button class="w-full mt-auto py-2 px-3 rounded-lg bg-royal-blue text-white group-hover:bg-amber-gold group-hover:text-dark-navy font-bold text-xs flex items-center justify-between transition-colors shadow">
+            <span>View Profile & Highlights</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Member 3: Ranjan Deka -->
+        <div onclick="openModal('ranjan')" class="group flex w-72 sm:w-80 shrink-0 flex-col rounded-2xl glass-card border border-white/10 hover:border-cyan-400 transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl p-5 hover:shadow-[0_0_30px_rgba(43,62,170,0.4)]">
+          <div class="relative h-80 w-full overflow-hidden rounded-xl bg-dark-navy mb-4 border border-white/10 transition-colors">
+            <img src="./Advisory images/Ranjan enhanced.png" alt="Ranjan Deka" class="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-navy via-transparent to-transparent opacity-80"></div>
+            <div class="absolute top-3 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-royal-blue/30 text-cyan-300 border border-royal-blue/50">Full-Stack Advisor</span>
+            </div>
+          </div>
+          <h3 class="font-bold text-white uppercase text-base tracking-wide group-hover:text-amber-gold transition-colors mb-0.5">RANJAN DEKA</h3>
+          <p class="text-xs font-semibold text-cyan-400 mb-0.5">Lead Consultant</p>
+          <p class="text-[11px] text-gray-300 font-medium mb-3">Xebia</p>
+          <p class="text-xs text-gray-200 leading-relaxed font-light line-clamp-2 mb-4">Ranjan Deka is Full-Stack & Systems Advisor to Khyontek AI and Lead Consultant at Xebia. Full-Stack Engineer with 11+ years experience.</p>
+          <button class="w-full mt-auto py-2 px-3 rounded-lg bg-royal-blue text-white group-hover:bg-amber-gold group-hover:text-dark-navy font-bold text-xs flex items-center justify-between transition-colors shadow">
+            <span>View Profile & Highlights</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Member 4: Srutisma Hazarika -->
+        <div onclick="openModal('srutisma')" class="group flex w-72 sm:w-80 shrink-0 flex-col rounded-2xl glass-card border border-white/10 hover:border-amber-gold transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl p-5 hover:shadow-[0_0_30px_rgba(245,166,35,0.3)]">
+          <div class="relative h-80 w-full overflow-hidden rounded-xl bg-dark-navy mb-4 border border-white/10 transition-colors">
+            <img src="./Advisory images/Srutisma_enhanced.png" alt="Srutisma Hazarika" class="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-navy via-transparent to-transparent opacity-80"></div>
+            <div class="absolute top-3 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-gold/15 text-amber-gold border border-amber-gold/40">Legal Advisor</span>
+            </div>
+          </div>
+          <h3 class="font-bold text-white uppercase text-base tracking-wide group-hover:text-amber-gold transition-colors mb-0.5">SRUTISMA HAZARIKA</h3>
+          <p class="text-xs font-semibold text-amber-gold mb-0.5">Legal Advisor</p>
+          <p class="text-[11px] text-gray-300 font-medium mb-3">S&N Legal</p>
+          <p class="text-xs text-gray-200 leading-relaxed font-light line-clamp-2 mb-4">Srutisma Hazarika is Legal Advisor to Khyontek AI and Partner at S&N Legal. Advocate with a strong foundation in economics and law.</p>
+          <button class="w-full mt-auto py-2 px-3 rounded-lg bg-royal-blue text-white group-hover:bg-amber-gold group-hover:text-dark-navy font-bold text-xs flex items-center justify-between transition-colors shadow">
+            <span>View Profile & Highlights</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Member 5: Dr. Pawan K. Mishra -->
+        <div onclick="openModal('pawan')" class="group flex w-72 sm:w-80 shrink-0 flex-col rounded-2xl glass-card border border-white/10 hover:border-cyan-400 transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl p-5 hover:shadow-[0_0_30px_rgba(43,62,170,0.4)]">
+          <div class="relative h-80 w-full overflow-hidden rounded-xl bg-dark-navy mb-4 border border-white/10 transition-colors">
+            <img src="./Advisory images/PawanMishra_enhanced.png" alt="Dr. Pawan K. Mishra" class="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-navy via-transparent to-transparent opacity-80"></div>
+            <div class="absolute top-3 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-royal-blue/30 text-cyan-300 border border-royal-blue/50">Theoretical CS</span>
+            </div>
+          </div>
+          <h3 class="font-bold text-white uppercase text-base tracking-wide group-hover:text-amber-gold transition-colors mb-0.5">DR. PAWAN K. MISHRA</h3>
+          <p class="text-xs font-semibold text-cyan-400 mb-0.5">Advisor, Theoretical CS</p>
+          <p class="text-[11px] text-gray-300 font-medium mb-3">Assistant Professor, IIIT Guwahati</p>
+          <p class="text-xs text-gray-200 leading-relaxed font-light line-clamp-2 mb-4">Dr. Pawan K. Mishra is Advisor in Algorithms & Theoretical CS and Assistant Professor at IIIT Guwahati. PhD from IIT Guwahati.</p>
+          <button class="w-full mt-auto py-2 px-3 rounded-lg bg-royal-blue text-white group-hover:bg-amber-gold group-hover:text-dark-navy font-bold text-xs flex items-center justify-between transition-colors shadow">
+            <span>View Profile & Highlights</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Repeated Set 2 (for seamless loop) -->
+        <div onclick="openModal('pritam')" class="group flex w-72 sm:w-80 shrink-0 flex-col rounded-2xl glass-card border border-white/10 hover:border-amber-gold transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl p-5 hover:shadow-[0_0_30px_rgba(245,166,35,0.3)]">
+          <div class="relative h-80 w-full overflow-hidden rounded-xl bg-dark-navy mb-4 border border-white/10 transition-colors">
+            <img src="./Advisory images/Pritam_enhanced.png" alt="Dr. Pritam Deka" class="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-navy via-transparent to-transparent opacity-80"></div>
+            <div class="absolute top-3 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-gold/15 text-amber-gold border border-amber-gold/40">Founder & CEO</span>
+            </div>
+          </div>
+          <h3 class="font-bold text-white uppercase text-base tracking-wide group-hover:text-amber-gold transition-colors mb-0.5">DR. PRITAM DEKA</h3>
+          <p class="text-xs font-semibold text-amber-gold mb-0.5">Founder & CEO</p>
+          <p class="text-[11px] text-gray-300 font-medium mb-3">Khyontek AI</p>
+          <p class="text-xs text-gray-200 leading-relaxed font-light line-clamp-2 mb-4">Dr. Pritam Deka is Founder & CEO at Khyontek AI. PhD from Queen's University Belfast in trustworthy AI and health misinformation.</p>
+          <button class="w-full mt-auto py-2 px-3 rounded-lg bg-royal-blue text-white group-hover:bg-amber-gold group-hover:text-dark-navy font-bold text-xs flex items-center justify-between transition-colors shadow">
+            <span>View Profile & Highlights</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <div onclick="openModal('nayan')" class="group flex w-72 sm:w-80 shrink-0 flex-col rounded-2xl glass-card border border-white/10 hover:border-amber-gold transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-xl p-5 hover:shadow-[0_0_30px_rgba(245,166,35,0.3)]">
+          <div class="relative h-80 w-full overflow-hidden rounded-xl bg-dark-navy mb-4 border border-white/10 transition-colors">
+            <img src="./Advisory images/Nayan_Kalita_enhanced.png" alt="Nayan J Kalita" class="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-navy via-transparent to-transparent opacity-80"></div>
+            <div class="absolute top-3 left-3 z-10">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-gold/15 text-amber-gold border border-amber-gold/40">Co-Founder & CSO</span>
+            </div>
+          </div>
+          <h3 class="font-bold text-white uppercase text-base tracking-wide group-hover:text-amber-gold transition-colors mb-0.5">NAYAN J KALITA</h3>
+          <p class="text-xs font-semibold text-amber-gold mb-0.5">Co-Founder & CSO</p>
+          <p class="text-[11px] text-gray-300 font-medium mb-3">Khyontek AI</p>
+          <p class="text-xs text-gray-200 leading-relaxed font-light line-clamp-2 mb-4">Nayan J Kalita is Co-Founder & Chief Strategy Officer at Khyontek AI. NLP & ML expert specializing in low-resource systems for Assamese and Manipuri.</p>
+          <button class="w-full mt-auto py-2 px-3 rounded-lg bg-royal-blue text-white group-hover:bg-amber-gold group-hover:text-dark-navy font-bold text-xs flex items-center justify-between transition-colors shadow">
+            <span>View Profile & Highlights</span>
+            <span>→</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Vision & Mission Banner -->
+    <div class="mx-auto mt-20 max-w-4xl px-6 text-center lg:px-0">
+      <div class="bg-gradient-to-r from-royal-blue/40 via-dark-navy to-royal-blue/40 border border-amber-gold/30 rounded-2xl p-8 backdrop-blur-xl shadow-2xl">
+        <div class="flex justify-center items-center gap-2 text-amber-gold text-xs font-bold uppercase tracking-widest mb-3">
+          <svg class="w-4 h-4 text-amber-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Our Mission & Regional Vision</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
+          Accelerating Socio-Economic Growth in Assam & Northeast India
+        </h2>
+        <p class="text-gray-200 text-xs sm:text-sm max-w-3xl mx-auto leading-relaxed font-light">
+          To pioneer a premier research-to-product ecosystem that accelerates the socio-economic growth of Assam and Northeast India. By transforming regional data into scalable, high-impact AI solutions across critical sectors like healthcare, finance, and tourism, we bridge the gap between academic innovation and industry-scale impact—building science-backed technologies that uplift local societies while competing on a global stage.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Interactive Profile Modal -->
+  <div id="advisorModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md transition-opacity">
+    <div class="relative w-full max-w-2xl bg-[#0E1742] border border-amber-gold/40 rounded-2xl p-6 sm:p-8 shadow-[0_0_50px_rgba(245,166,35,0.25)]">
+      <button onclick="closeModal()" class="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="flex flex-col md:flex-row gap-6 items-start">
+        <div class="w-full md:w-48 shrink-0 text-center">
+          <div class="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/20 shadow-lg bg-dark-navy">
+            <img id="modalImg" src="" alt="" class="w-full h-full object-cover object-top">
+          </div>
+          <span id="modalTag" class="inline-block mt-3 px-3 py-1 rounded-full bg-amber-gold/20 border border-amber-gold/40 text-amber-gold text-[11px] font-bold uppercase tracking-wider"></span>
+        </div>
+
+        <div class="flex-1">
+          <h3 id="modalName" class="text-2xl font-extrabold text-white mb-1 tracking-wide"></h3>
+          <p id="modalRole" class="text-sm font-bold text-amber-gold mb-1"></p>
+          <p id="modalOrg" class="text-xs text-gray-300 font-medium mb-4"></p>
+
+          <div class="bg-royal-blue/20 border border-royal-blue/40 rounded-xl p-4 mb-4">
+            <h4 class="text-xs font-bold text-amber-gold uppercase tracking-wider mb-2">Executive & Research Biography</h4>
+            <p id="modalBio" class="text-xs text-gray-200 leading-relaxed font-normal"></p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Key Focus Areas</h4>
+            <div id="modalExpertise" class="flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/10 flex justify-end">
+        <button onclick="closeModal()" class="px-5 py-2 rounded-lg bg-amber-gold text-dark-navy hover:bg-[#E0941B] text-xs font-bold transition-colors">Close Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const data = {
+      pritam: {
+        name: 'DR. PRITAM DEKA',
+        role: 'Founder & CEO',
+        org: 'Khyontek AI',
+        tag: 'Founder & CEO',
+        bio: "Dr. Pritam Deka, PhD, is Founder & CEO at Khyontek AI. An AI researcher and engineer specializing in multimodal artificial intelligence, natural language processing, and document intelligence. He completed his PhD at Queen's University Belfast, focusing on health misinformation detection, evidence-based fact-checking, and trustworthy AI. His current work explores Vision-Language Models, LLMs, business process intelligence, and diagram understanding.",
+        expertise: ['Trustworthy AI', 'Vision-Language Models', 'Healthcare AI & Fact-Checking', 'Multimodal Reasoning'],
+        img: './Advisory images/Pritam_enhanced.png'
+      },
+      nayan: {
+        name: 'NAYAN J KALITA',
+        role: 'Co-Founder & Chief Strategy Officer',
+        org: 'Khyontek AI',
+        tag: 'Co-Founder & CSO',
+        bio: 'Nayan J Kalita is Co-Founder and Chief Strategy Officer at Khyontek AI. With a background in natural language processing and machine learning, specializing in low-resource language systems for Assamese and Manipuri, he brings deep technical expertise alongside hands-on experience in building and leading early-stage ventures in Northeast India. A BIRAC BIG awardee, he has navigated government-funded innovation from the ground up.',
+        expertise: ['Low-Resource NLP', 'Assamese & Manipuri Models', 'BIRAC BIG Awardee', 'Regional Tech Strategy'],
+        img: './Advisory images/Nayan_Kalita_enhanced.png'
+      },
+      ranjan: {
+        name: 'RANJAN DEKA',
+        role: 'Lead Consultant',
+        org: 'Xebia',
+        tag: 'Full-Stack Advisor',
+        bio: 'Ranjan Deka is Lead Consultant at Xebia and Full Stack Advisor to Khyontek AI. With over 11 years of experience in building and delivering enterprise applications, his expertise spans .NET, C#, JavaScript, React.js, and Node.js across e-commerce and telecommunications domains.',
+        expertise: ['.NET & C# Enterprise Systems', 'React.js & Node.js Architecture', '11+ Years Full-Stack Lead', 'E-Commerce & Telecom Solutions'],
+        img: './Advisory images/Ranjan enhanced.png'
+      },
+      srutisma: {
+        name: 'SRUTISMA HAZARIKA',
+        role: 'Legal Advisor',
+        org: 'S&N Legal',
+        tag: 'Legal Advisor',
+        bio: 'Ms. Srutisma Hazarika, Partner at S&N Legal, is a distinguished advocate and Legal Advisor with a robust foundation in both economics and law. She is highly regarded for her adept handling of matters related to international contracts, labor laws, and regulatory governance. Known for her diplomatic approach and sharp legal insight.',
+        expertise: ['International Contracts', 'Labor Laws & Regulatory Governance', 'Complex Business Dispute Resolution', 'Economics & Technology Law'],
+        img: './Advisory images/Srutisma_enhanced.png'
+      },
+      pawan: {
+        name: 'DR. PAWAN K. MISHRA',
+        role: 'Advisor, Algorithms & Theoretical CS',
+        org: 'Assistant Professor, IIIT Guwahati',
+        tag: 'Theoretical CS Advisor',
+        bio: 'Dr. Pawan K. Mishra is Advisor, Algorithms & Theoretical Computer Science at Khyontek AI and Assistant Professor in CSE at IIIT Guwahati. His expertise lies at the intersection of network optimization and algorithmic design, with a focus on graph theory, approximation algorithms, computational geometry, and discrete location theory.',
+        expertise: ['Network Optimization & Graph Theory', 'Approximation Algorithms', 'Discrete Location Theory', 'Theoretical CS & R&D'],
+        img: './Advisory images/PawanMishra_enhanced.png'
+      }
+    };
+
+    function openModal(id) {
+      const item = data[id];
+      if(!item) return;
+      document.getElementById('modalName').innerText = item.name;
+      document.getElementById('modalRole').innerText = item.role;
+      document.getElementById('modalOrg').innerText = item.org;
+      document.getElementById('modalTag').innerText = item.tag;
+      document.getElementById('modalBio').innerText = item.bio;
+      document.getElementById('modalImg').src = item.img;
+      
+      const expContainer = document.getElementById('modalExpertise');
+      expContainer.innerHTML = item.expertise.map(exp => `<span class="px-2.5 py-1 rounded-md bg-royal-blue/30 border border-royal-blue/50 text-cyan-200 text-xs font-medium">• ${exp}</span>`).join('');
+      
+      document.getElementById('advisorModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('advisorModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
