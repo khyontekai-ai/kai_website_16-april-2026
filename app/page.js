@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Brain, FlaskConical, MapPin, Cpu, Cog, Handshake, ShieldCheck, Lightbulb, BarChart3, Languages } from 'lucide-react'
 import ReviewsDashboard from '@/components/ui/ReviewsDashboard'
 import FeaturedWork from '@/components/ui/FeaturedWork'
+import AdvisorsSection from '@/components/ui/AdvisorsSection'
 
 export default function HomePage() {
   return (
@@ -101,6 +102,9 @@ export default function HomePage() {
 
       {/* Featured Work / Case Studies Section */}
       <FeaturedWork />
+
+      {/* Founders & Advisory Leadership Section */}
+      <AdvisorsSection />
 
       {/* Core Capabilities Section */}
       <section className="bg-light-grey py-16 md:py-20">
