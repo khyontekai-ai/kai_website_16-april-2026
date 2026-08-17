@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Code, Scale, Brain, Sparkles, X, ArrowRight, CheckCircle2, UserCheck } from 'lucide-react'
 
@@ -74,6 +74,22 @@ export default function AdvisorsSection() {
   const [selectedPerson, setSelectedPerson] = useState(null)
   const [hoveredId, setHoveredId] = useState(null)
 
+  // Prevent background scroll on mobile devices when modal is open
+  useEffect(() => {
+    if (selectedPerson) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.touchAction = 'none'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+    }
+  }, [selectedPerson])
+
   return (
     <section className="relative w-full overflow-hidden bg-dark-navy py-16 md:py-24 font-sans text-white">
       {/* Ambient Glows */}
@@ -86,7 +102,7 @@ export default function AdvisorsSection() {
         <div className="mb-20">
           <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center">
             {/* Header Badge Icon using audience.png */}
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-amber-gold p-2.5 shadow-lg border border-amber-gold/50 overflow-hidden">
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-amber-gold p-2.5 shadow-lg border border-amber-gold/50 overflow-hidden mx-auto">
               <img
                 src="/advisors/audience.png"
                 alt="Audience Icon"
@@ -271,26 +287,27 @@ export default function AdvisorsSection() {
         </div>
       </div>
 
-      {/* Profile Modal */}
+      {/* Profile Modal - Fully optimized for Mobile Touch & Scroll */}
       {selectedPerson && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md transition-opacity animate-in fade-in duration-300"
+          className="fixed inset-0 z-50 overflow-y-auto py-8 px-4 sm:px-6 bg-black/80 backdrop-blur-md flex items-center justify-center animate-in fade-in duration-300"
           onClick={() => setSelectedPerson(null)}
+          style={{ WebkitOverflowScrolling: 'touch' }}
         >
           <div
-            className="relative w-full max-w-2xl bg-[#0E1742] border border-amber-gold/40 rounded-2xl p-6 sm:p-8 shadow-[0_0_50px_rgba(245,166,35,0.25)] overflow-hidden"
+            className="relative w-full max-w-2xl bg-[#0E1742] border border-amber-gold/40 rounded-2xl p-5 sm:p-8 shadow-[0_0_50px_rgba(245,166,35,0.25)] my-auto max-h-[88vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedPerson(null)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white transition-colors z-20"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white transition-colors z-20"
               aria-label="Close Profile"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex flex-col md:flex-row gap-6 items-start relative z-10">
-              <div className="w-full md:w-48 shrink-0">
+            <div className="flex flex-col md:flex-row gap-6 items-start relative z-10 pt-2 sm:pt-0">
+              <div className="w-36 sm:w-48 shrink-0 mx-auto md:mx-0">
                 <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/20 shadow-lg bg-dark-navy">
                   <img
                     src={selectedPerson.image}
@@ -305,18 +322,18 @@ export default function AdvisorsSection() {
                 </div>
               </div>
 
-              <div className="flex-1">
-                <h3 className="text-2xl font-extrabold text-white mb-1 tracking-wide">
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-1 tracking-wide">
                   {selectedPerson.name}
                 </h3>
-                <p className="text-sm font-bold text-amber-gold mb-1">
+                <p className="text-xs sm:text-sm font-bold text-amber-gold mb-1">
                   {selectedPerson.role}
                 </p>
                 <p className="text-xs text-gray-300 font-medium mb-4">
                   {selectedPerson.org}
                 </p>
 
-                <div className="bg-royal-blue/20 border border-royal-blue/40 rounded-xl p-4 mb-4">
+                <div className="bg-royal-blue/20 border border-royal-blue/40 rounded-xl p-4 mb-4 text-left">
                   <h4 className="text-xs font-bold text-amber-gold uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     <UserCheck className="w-3.5 h-3.5 text-amber-gold" />
                     <span>Executive & Research Biography</span>
@@ -326,7 +343,7 @@ export default function AdvisorsSection() {
                   </p>
                 </div>
 
-                <div>
+                <div className="text-left">
                   <h4 className="text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">
                     Key Focus Areas:
                   </h4>
@@ -347,7 +364,7 @@ export default function AdvisorsSection() {
             <div className="mt-6 pt-4 border-t border-white/10 flex justify-end">
               <button
                 onClick={() => setSelectedPerson(null)}
-                className="px-5 py-2 rounded-lg bg-amber-gold text-dark-navy hover:bg-[#E0941B] text-xs font-bold transition-colors"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-amber-gold text-dark-navy hover:bg-[#E0941B] text-xs font-bold transition-colors"
               >
                 Close Profile
               </button>
