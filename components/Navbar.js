@@ -8,7 +8,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Reviews', href: '/#reviews' },
   { name: 'About', href: '/about' },
-  { name: 'Team & Advisors', href: '/team' },
+  { name: 'Advisors', href: '/advisors' },
   { name: 'Research', href: '/research' },
   { name: 'Upcoming Projects', href: '/upcoming-projects' },
   { name: 'Programmes', href: '/programmes' },

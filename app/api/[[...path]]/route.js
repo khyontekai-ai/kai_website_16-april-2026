@@ -207,6 +207,30 @@ function authorizeAdmin(request) {
 // Default Projects to seed
 const defaultProjects = [
   {
+    id: '0',
+    title: 'Spasht Health — AI Medical Report Reader',
+    status: 'Live',
+    timeline: 'Live Now',
+    url: 'https://spashthealth.com/',
+    description:
+      'A free AI-powered tool that explains Indian medical reports — lab reports, prescriptions, and discharge summaries — in plain words across English and 19 Indian languages including Assamese, Hindi, Bengali, Tamil, Telugu, and more. Built for India, by Khyontek AI.',
+    details:
+      'Most patients in India receive technical medical reports they cannot fully understand, leading to confusion, unnecessary anxiety, and poor follow-up with clinicians. Spasht Health reads what your lab printed and returns every value in plain language — with a visual range chart, a plain-language explanation, and a ready list of questions to ask your doctor. It supports 20 languages (English + 19 Indian languages), includes read-aloud narration, and is entirely stateless: no report is stored on any server at any stage. The free tier covers up to 5 pages per report. A B2B API tier is available for laboratories and clinics to embed into their existing report delivery pipelines.',
+    createdAt: new Date()
+  },
+  {
+    id: '0b',
+    title: 'Krevoh — Vibe-Based Place Discovery',
+    status: 'In Progress',
+    timeline: 'Beta Coming Soon',
+    url: 'https://www.krevoh.com/',
+    description:
+      'A next-generation place discovery platform that matches users to venues and locations based on their vibe — not just category or rating. Krevoh moves beyond star ratings to surface places that genuinely fit how you feel, what you\'re in the mood for, and who you\'re going with.',
+    details:
+      'Most location discovery apps show you what is nearby or what is popular — but not what is right for you in that moment. Krevoh is being built to solve this gap by using AI to match places to your mood, context, and preferences. Rather than filtering by cuisine or price, you describe your vibe and Krevoh surfaces the places most likely to resonate. The platform is currently in closed development, with a beta access waitlist open at krevoh.com. Early access will be rolled out to waitlist members first.',
+    createdAt: new Date()
+  },
+  {
     id: '1',
     title: 'Population-Specific Genomic Foundation Model',
     status: 'In Progress',

@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Rocket, Clock, CheckCircle2, CircleDot, ChevronDown, ChevronUp } from 'lucide-react'
+import { Rocket, Clock, CheckCircle2, CircleDot, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react'
 
 const statusConfig = {
+  'Live': { color: 'bg-green-600 text-white', icon: CheckCircle2 },
   'In Progress': { color: 'bg-royal-blue text-white', icon: CircleDot },
   'Planning': { color: 'bg-amber-gold text-dark-navy', icon: Clock },
   'Concept': { color: 'bg-pale-blue text-royal-blue border border-royal-blue/20', icon: Rocket },
@@ -36,6 +37,18 @@ function ProjectCard({ project }) {
 
         <h3 className="text-xl font-bold text-dark-navy mb-3 leading-snug font-nunito tracking-tight">{project.title}</h3>
         <p className="text-dark-grey text-sm leading-relaxed font-nunito">{project.description}</p>
+
+        {project.url && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-white bg-royal-blue px-4 py-2 rounded-none hover:bg-amber-gold hover:text-dark-navy transition-colors duration-200"
+          >
+            <ExternalLink size={14} />
+            Visit Site
+          </a>
+        )}
 
         <button
           onClick={() => setExpanded(!expanded)}
