@@ -65,6 +65,33 @@
   animation: marquee-vertical var(--duration, 40s) linear infinite;
 }
 
+@keyframes float-ambient {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  20% {
+    opacity: 0.9;
+    transform: translateY(4px) scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.01);
+  }
+  80% {
+    opacity: 0.9;
+    transform: translateY(2px) scale(0.98);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+}
+
+.animate-float-ambient {
+  animation: float-ambient 8s ease-in-out infinite both;
+}
+
 @layer components {
   .corner-brackets {
     @apply relative;
