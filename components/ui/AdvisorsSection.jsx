@@ -38,34 +38,46 @@ const advisors = [
     role: 'Lead Consultant',
     org: 'Xebia',
     tag: 'Full-Stack Advisor',
-    bio: 'Ranjan Deka is Full-Stack & Systems Advisor to Khyontek AI and Lead Consultant at Xebia. Full-Stack Engineer with 11+ years delivering enterprise applications in .NET, React.js, and Node.js.',
-    fullBio: 'Ranjan Deka is Lead Consultant at Xebia and Full Stack Advisor to Khyontek AI. With over 11 years of experience in building and delivering enterprise applications, his expertise spans .NET, C#, JavaScript, React.js, and Node.js across e-commerce and telecommunications domains. Known for leading engineering teams, delivering high-quality solutions, and embracing emerging technologies including AI-driven development tools.',
-    expertise: ['.NET & C# Enterprise Systems', 'React.js & Node.js Architecture', '11+ Years Full-Stack Lead', 'E-Commerce & Telecom Solutions'],
+    bio: 'Full Stack Developer with over 11 years of experience in building and delivering enterprise applications in .NET, C#, React.js, and Node.js.',
+    fullBio: 'Full Stack Developer with over 11 years of experience in building and delivering enterprise applications. Expertise spans .NET, C#, JavaScript, React.js, and Node.js, with experience across e-commerce and telecommunications domains. Known for leading teams, delivering high-quality solutions, and embracing emerging technologies, including AI-driven development tools.',
+    expertise: ['.NET & C# Enterprise Systems', 'React.js & Node.js Architecture', '11+ Years Full-Stack Lead', 'AI-Driven Development Tools'],
     image: '/advisors/ranjan.png',
     badgeBg: 'bg-royal-blue/30 text-cyan-300 border-royal-blue/50',
   },
   {
     id: 'srutisma',
     name: 'SRUTISMA HAZARIKA',
-    role: 'Legal Advisor',
+    role: 'Co-Founding Partner',
     org: 'S&N Legal',
     tag: 'Legal Advisor',
-    bio: 'Srutisma Hazarika is Legal Advisor to Khyontek AI and Partner at S&N Legal. Advocate with a strong foundation in economics and law, specializing in international contracts, labor laws, and business disputes.',
-    fullBio: 'Ms. Srutisma Hazarika, Partner at S&N Legal, is a distinguished advocate and Legal Advisor with a robust foundation in both economics and law. She is highly regarded for her adept handling of matters related to international contracts, labor laws, and regulatory governance. Known for her diplomatic approach and sharp legal insight, Ms. Hazarika has successfully mediated and resolved numerous complex business disputes.',
-    expertise: ['International Contracts', 'Labor Laws & Regulatory Governance', 'Complex Business Dispute Resolution', 'Economics & Technology Law'],
+    bio: 'Distinguished advocate with a robust foundation in economics and law, specializing in international contracts, labor laws, and matrimonial disputes.',
+    fullBio: 'Ms. Srutisma Hazarika, the Co-Founding Partner of S&N Legal, is a distinguished advocate with a robust foundation in both economics and law. She is highly regarded for her adept handling of matters related to international contracts, labor laws, and matrimonial disputes. Known for her diplomatic approach and sharp legal insight, Ms. Hazarika has successfully mediated and resolved numerous high-conflict cases, including complex business disputes, divorces, and custody matters. Her dedication to achieving just outcomes and her commitment to upholding professional excellence have earned her a reputation as a trusted and effective legal advisor. With a focus on practical solutions and meticulous attention to detail, Ms. Hazarika continues to set a high standard in the legal profession.',
+    expertise: ['International Contracts', 'Labor Laws & Regulatory Governance', 'High-Conflict Dispute Mediation', 'Corporate & Family Law'],
     image: '/advisors/srutisma.png',
     badgeBg: 'bg-amber-gold/15 text-amber-gold border-amber-gold/40',
   },
   {
     id: 'pawan',
     name: 'DR. PAWAN K. MISHRA',
-    role: 'Advisor, Algorithms & Theoretical CS',
-    org: 'Assistant Professor, IIIT Guwahati',
+    role: 'Assistant Professor, CSE',
+    org: 'IIIT Guwahati | Ph.D. (IIT Guwahati)',
     tag: 'Theoretical CS Advisor',
-    bio: 'Dr. Pawan K. Mishra is Advisor in Algorithms & Theoretical CS and Assistant Professor at IIIT Guwahati. PhD from IIT Guwahati and former BITS Pilani faculty, specializing in network optimization and graph theory.',
-    fullBio: 'Dr. Pawan K. Mishra is Advisor, Algorithms & Theoretical Computer Science at Khyontek AI and Assistant Professor in CSE at IIIT Guwahati. His expertise lies at the intersection of network optimization and algorithmic design, with a focus on graph theory, approximation algorithms, computational geometry, and discrete location theory. Former BITS Pilani faculty with PhD from IIT Guwahati, widely published in Discrete Applied Mathematics and Information Processing Letters.',
-    expertise: ['Network Optimization & Graph Theory', 'Approximation Algorithms', 'Discrete Location Theory', 'Theoretical CS & R&D'],
+    bio: 'Assistant Professor at IIIT Guwahati specializing in Graph Theory and Algorithms, Computational Geometry, Location Theory, and Approximation Algorithms.',
+    fullBio: 'Dr. Pawan K. Mishra is an Assistant Professor in the Department of CSE at the Indian Institute of Information Technology Guwahati (joined August 2023). Prior to that, he was a faculty member at BITS Pilani (Pilani campus). He completed his Ph.D. at the Department of CSE at IIT Guwahati. Research areas: Graph Theory and Algorithms, Computational Geometry, Location Theory, and Approximation Algorithms. Teaching courses at IIITG: Algorithms, Algorithms Lab, Approximation Algorithms, and Combinatorial Optimization.',
+    expertise: ['Graph Theory & Algorithms', 'Approximation Algorithms', 'Computational Geometry & Location Theory', 'Data Structures & Optimization'],
     image: '/advisors/pawan.png',
+    badgeBg: 'bg-royal-blue/30 text-cyan-300 border-royal-blue/50',
+  },
+  {
+    id: 'akshay',
+    name: 'DR. AKSHAY PARAKH',
+    role: 'Advisor Data Scientist, AI',
+    org: 'Eli Lilly & Co. | Ph.D. (CSE, IIT Guwahati)',
+    tag: 'NLP & Agentic AI Advisor',
+    bio: 'Dr. Akshay Parakh is Advisor Data Scientist in the Advanced Intelligence (AI) team at Eli Lilly & Co. Ph.D. from IIT Guwahati specializing in NLP, Information Extraction, and reasoning models.',
+    fullBio: 'Dr. Akshay Parakh is an NLP Data Scientist in the Advanced Intelligence (AI) team at Eli Lilly & Co., Bangalore. He completed his Ph.D. in Computer Science and Engineering from IIT Guwahati in 2023, centering around Natural Language Processing (NLP), Information Extraction (IE), Deep Learning, and Large-scale Relation Classification from noisy datasets. His current work explores reasoning models, reinforcement learning, and efficient small models for domain-specific applications, developing agentic computation pipelines for drug discovery computation models and automated first-draft document generation.',
+    expertise: ['Reasoning Models & Small LLMs', 'Agentic Drug Discovery Pipelines', 'Information Extraction & Relation Classification', 'Ph.D., CSE, IIT Guwahati'],
+    image: '/images/advisors/Akshay_enhanced.png',
     badgeBg: 'bg-royal-blue/30 text-cyan-300 border-royal-blue/50',
   }
 ]
@@ -203,7 +215,7 @@ export default function AdvisorsSection() {
           </div>
 
           {/* Advisors Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {advisors.map((member) => {
               const isHovered = hoveredId === member.id
               return (

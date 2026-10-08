@@ -43,16 +43,19 @@ const advisors = [
       'More details coming soon...'
     ],
     image: '/images/advisors/Gyanendra_enhanced.png',
-    icon: GraduationCap
+    icon: GraduationCap,
+    hidden: true
   },
   {
     id: 2,
     name: 'RANJAN DEKA',
     title: 'Full-Stack Developer',
-    organization: '11+ Years of Experience',
-    description: 'Seasoned full-stack developer building scalable, user-centric web applications.',
+    organization: '11+ Years Experience',
+    description: 'Full Stack Developer with over 11 years of experience in building and delivering enterprise applications across e-commerce and telecom.',
     fullDetails: [
-      'More details coming soon...'
+      'Full Stack Developer with over 11 years of experience building and delivering enterprise applications.',
+      'Expertise spans .NET, C#, JavaScript, React.js, and Node.js across e-commerce and telecommunications domains.',
+      'Known for leading teams, delivering high-quality solutions, and embracing emerging technologies, including AI-driven development tools.'
     ],
     image: '/images/advisors/Ranjan_enhanced.png',
     icon: Code
@@ -62,9 +65,12 @@ const advisors = [
     name: 'SRUTISMA HAZARIKA',
     title: 'Co-Founding Partner',
     organization: 'S&N Legal',
-    description: 'Distinguished advocate with expertise in international contracts and labor laws.',
+    description: 'Distinguished advocate with a robust foundation in economics and law, specializing in international contracts, labor laws, and dispute resolution.',
     fullDetails: [
-      'More details coming soon...'
+      'Co-Founding Partner of S&N Legal with a robust foundation in both economics and law.',
+      'Highly regarded for adept handling of international contracts, labor laws, and matrimonial disputes.',
+      'Known for sharp legal insight, successfully mediating high-conflict cases, complex business disputes, and regulatory matters.',
+      'Dedicated to practical solutions, meticulous attention to detail, and upholding professional excellence.'
     ],
     image: '/images/advisors/Srutisma_enhanced.png',
     icon: Scale
@@ -72,13 +78,31 @@ const advisors = [
   {
     id: 4,
     name: 'DR. PAWAN K MISHRA',
-    title: 'Assistant Professor',
-    organization: 'IIIT Guwahati',
-    description: 'Specializing in Computer Science and Engineering with a focus on cutting-edge research.',
+    title: 'Assistant Professor, CSE',
+    organization: 'IIIT Guwahati | Ph.D. (IIT Guwahati)',
+    description: 'Assistant Professor at IIIT Guwahati working in Graph Theory and Algorithms, Computational Geometry, Location Theory, and Approximation Algorithms.',
     fullDetails: [
-      'More details coming soon...'
+      'Assistant Professor in the Department of CSE at IIIT Guwahati (joined August 2023); former faculty member at BITS Pilani (Pilani campus).',
+      'Ph.D. from the Department of CSE at IIT Guwahati.',
+      'Research Interests: Graph Theory & Algorithms, Computational Geometry, Location Theory, Approximation Algorithms, Data Structures.',
+      'Teaching at IIITG: Algorithms & Algorithms Lab (2023–2026), Approximation Algorithms (Winter 2024–2025), Combinatorial Optimization (Winter 2026).',
+      'Personal Space: sites.google.com/site/mishipawan'
     ],
     image: '/images/advisors/PawanMishra_enhanced.png',
+    icon: Brain
+  },
+  {
+    id: 5,
+    name: 'DR. AKSHAY PARAKH',
+    title: 'Advisor Data Scientist @ AI',
+    organization: 'Eli Lilly & Co. | Ph.D. (CSE, IIT Guwahati)',
+    description: 'Specializing in reasoning models, NLP, and agentic AI pipelines for domain-specific applications and document intelligence.',
+    fullDetails: [
+      'Advisor Data Scientist in the Advanced Intelligence (AI) team at Eli Lilly & Co., Bangalore (working full-time since June 2022).',
+      'Ph.D. from IIT Guwahati (2023) focused on NLP, Information Extraction (IE), Deep Learning, and Large-scale Relation Classification.',
+      'Exploring reasoning models, reinforcement learning, and developing agentic computation pipelines for drug discovery and automated first-draft generation.'
+    ],
+    image: '/images/advisors/Akshay_enhanced.png',
     icon: Brain
   }
 ];
@@ -171,8 +195,8 @@ export default function AdvisorsSection() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {advisors.map((advisor) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+            {advisors.filter((advisor) => !advisor.hidden).map((advisor) => (
               <div 
                 key={advisor.id}
                 className="relative group rounded-2xl overflow-hidden border border-blue-900/50 bg-[#05112c] hover:border-blue-500/50 transition-all duration-300 flex flex-col h-fit"
