@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import defaultReviews from '@/data/reviews.json'
 
 // ============================================================
 // MongoDB Atlas Data API (replaces the Node.js mongodb driver)
@@ -276,51 +277,6 @@ const defaultProjects = [
   }
 ]
 
-// Default Reviews to seed
-const defaultReviews = [
-  {
-    id: '1',
-    name: 'Participant, Tangla College',
-    rating: 5,
-    text: 'The workshop on GenAI and Agentic AI was eye-opening. The instructors explained complex concepts in a very approachable way. I now feel confident exploring AI tools for my own research.',
-    createdAt: new Date()
-  },
-  {
-    id: '2',
-    name: 'Faculty Member, Tangla College',
-    rating: 5,
-    text: "Extremely well-organised session. The hands-on demonstrations of agentic AI workflows were particularly impressive and directly relevant to our department's work.",
-    createdAt: new Date()
-  },
-  {
-    id: '3',
-    name: 'Student, Tangla College',
-    rating: 4,
-    text: 'Learned a lot about how generative AI works under the hood. Would have loved a longer session — there was so much more to explore. Looking forward to the next programme!',
-    createdAt: new Date()
-  },
-  {
-    id: '4',
-    name: 'Participant, Tangla College',
-    rating: 5,
-    text: 'Khyontek AI brought cutting-edge knowledge right to our campus. The examples were rooted in local and regional contexts which made everything much more relatable.',
-    createdAt: new Date()
-  },
-  {
-    id: '5',
-    name: 'Student, Tangla College',
-    rating: 5,
-    text: 'The segment on Agentic AI was the highlight for me. Never thought AI agents could be so powerful. Motivated me to start building my own projects.',
-    createdAt: new Date()
-  },
-  {
-    id: '6',
-    name: 'Faculty Member, Tangla College',
-    rating: 4,
-    text: 'A well-paced and thoughtfully curated workshop. The team clearly has deep expertise and a passion for making AI accessible to communities in Northeast India.',
-    createdAt: new Date()
-  }
-]
 
 // Default Case Studies to seed
 const defaultCaseStudies = [
